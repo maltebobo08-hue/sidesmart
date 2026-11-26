@@ -1,0 +1,421 @@
+<!doctype html>
+<html lang="da">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Hjemmeside udvikling og webdesign til virksomheder | Sidesmart</title>
+<meta name="description" content="Få en ny hjemmeside, der er hurtig, mobilvenlig og nem at finde på Google. Sidesmart står for webdesign og udvikling af hjemmesider til danske virksomheder. Få et uforpligtende tilbud.">
+<link rel="canonical" href="https://sidesmart.dk/">
+<link rel="icon" href="favicon.svg" type="image/svg+xml">
+<meta property="og:type" content="website">
+<meta property="og:locale" content="da_DK">
+<meta property="og:site_name" content="Sidesmart">
+<meta property="og:url" content="https://sidesmart.dk/">
+<meta property="og:title" content="Hjemmeside udvikling og webdesign | Sidesmart">
+<meta property="og:description" content="Hurtige, enkle og mobilvenlige hjemmesider til danske virksomheder.">
+<meta property="og:image" content="https://sidesmart.dk/oes-desktop.jpg">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "ProfessionalService",
+      "@id": "https://sidesmart.dk/#virksomhed",
+      "name": "Sidesmart",
+      "description": "Webdesign og udvikling af hjemmesider til danske virksomheder.",
+      "url": "https://sidesmart.dk/",
+      "logo": "https://sidesmart.dk/favicon.svg",
+      "image": "https://sidesmart.dk/oes-desktop.jpg",
+      "email": "kontakt@sidesmart.dk",
+      "areaServed": { "@type": "Country", "name": "Danmark" },
+      "knowsAbout": ["Webdesign", "Hjemmesideudvikling", "Redesign af hjemmesider", "Søgemaskineoptimering"]
+    },
+    {
+      "@type": "FAQPage",
+      "mainEntity": [
+        { "@type": "Question", "name": "Hvad koster en ny hjemmeside?",
+          "acceptedAnswer": { "@type": "Answer", "text": "Prisen afhænger af, hvor mange sider I har brug for, og om siden skal kobles på andre systemer. Efter en kort snak får I en fast pris, så der ikke kommer overraskelser." } },
+        { "@type": "Question", "name": "Hvor lang tid tager det at lave en hjemmeside?",
+          "acceptedAnswer": { "@type": "Answer", "text": "En mindre hjemmeside kan typisk være klar på få uger. Større projekter tager længere, og I får en tidsplan, før vi går i gang." } },
+        { "@type": "Question", "name": "Kan I hjælpe med at blive fundet på Google?",
+          "acceptedAnswer": { "@type": "Answer", "text": "Ja. Alle vores hjemmesider bygges hurtige, mobilvenlige og med de rigtige titler, beskrivelser og strukturerede data, så Google nemt kan forstå dem." } },
+        { "@type": "Question", "name": "Kan I overtage og forny vores gamle hjemmeside?",
+          "acceptedAnswer": { "@type": "Answer", "text": "Ja. Vi kan flytte jer fra fx WordPress til en ny side og sørge for, at gamle links sendes videre, så I ikke mister jeres placering på Google." } },
+        { "@type": "Question", "name": "Hvad sker der, når siden er online?",
+          "acceptedAnswer": { "@type": "Answer", "text": "Vi kan stå for hosting, domæne og løbende ændringer, så I ikke selv skal tænke på det." } }
+      ]
+    }
+  ]
+}
+</script>
+<meta name="theme-color" content="#0F2233">
+<link rel="preload" href="inter-600.woff2" as="font" type="font/woff2" crossorigin>
+<style>
+@font-face{font-family:"Inter";font-weight:400;font-display:swap;src:url(inter-400.woff2) format("woff2")}
+@font-face{font-family:"Inter";font-weight:500;font-display:swap;src:url(inter-500.woff2) format("woff2")}
+@font-face{font-family:"Inter";font-weight:600;font-display:swap;src:url(inter-600.woff2) format("woff2")}
+
+:root{
+  --fjord:#0F2233; --fjord-2:#183449; --ink:#14212E; --muted:#5A6878;
+  --bg:#FAFAF7; --card:#FFFFFF; --soft:#EEF1EF; --line:#DDE3E3;
+  --pixel:#3FA7A0; --pixel-ink:#0B6B66; --sand:#E9E2D4;
+  --on-dark:#F2F5F4; --on-dark-muted:#A9B8C2;
+  --sans:"Inter",system-ui,-apple-system,"Segoe UI",sans-serif;
+  --wrap:1120px; --r:14px;
+  color-scheme:light;
+}
+@media (prefers-color-scheme:dark){
+  :root:not([data-theme="light"]){
+    --ink:#E8EEF0; --muted:#9AAAB6; --bg:#0B1620; --card:#111F2B; --soft:#0F1C27;
+    --line:#203241; --pixel-ink:#6FD0C8; --sand:#1A2833; color-scheme:dark;
+  }
+}
+:root[data-theme="dark"]{
+  --ink:#E8EEF0; --muted:#9AAAB6; --bg:#0B1620; --card:#111F2B; --soft:#0F1C27;
+  --line:#203241; --pixel-ink:#6FD0C8; --sand:#1A2833; color-scheme:dark;
+}
+
+*,*::before,*::after{box-sizing:border-box}
+html{scroll-behavior:smooth;-webkit-text-size-adjust:100%}
+body{margin:0;background:var(--bg);color:var(--ink);font:400 17px/1.6 var(--sans);-webkit-font-smoothing:antialiased}
+img{max-width:100%;height:auto;display:block}
+a{color:inherit}
+h1,h2,h3{font-weight:600;letter-spacing:-.02em;line-height:1.15;margin:0}
+p{margin:0}
+.wrap{max-width:var(--wrap);margin:0 auto;padding:0 24px}
+@media (max-width:600px){.wrap{padding:0 16px}}
+.skip{position:absolute;left:-999px;top:8px;background:var(--card);padding:8px 12px;border-radius:8px;z-index:10}
+.skip:focus{left:8px}
+:focus-visible{outline:2px solid var(--pixel);outline-offset:3px;border-radius:4px}
+
+/* Logo */
+.logo{display:inline-flex;align-items:center;gap:10px;text-decoration:none;font-weight:600;font-size:19px;letter-spacing:-.01em}
+.logo-mark{width:24px;height:24px;flex:none}
+.logo b{font-weight:400;opacity:.7}
+
+/* Header + hero */
+.hero{background:var(--fjord);color:var(--on-dark);position:relative;overflow:hidden}
+.hero::after{content:"";position:absolute;inset:auto 0 0 0;height:180px;pointer-events:none;
+  background:
+    linear-gradient(180deg,transparent,rgba(63,167,160,.08)),
+    url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1440 180' preserveAspectRatio='none'%3E%3Cpath d='M0 120 L180 60 L320 110 L470 30 L640 100 L800 50 L960 115 L1120 40 L1280 95 L1440 55 L1440 180 L0 180Z' fill='%23183449'/%3E%3Cpath d='M0 150 L220 105 L400 140 L600 95 L820 145 L1040 100 L1240 140 L1440 110 L1440 180 L0 180Z' fill='%231E3D54'/%3E%3C/svg%3E") bottom/100% 100% no-repeat}
+header{display:flex;align-items:center;justify-content:space-between;padding:22px 0;position:relative;z-index:2}
+nav ul{list-style:none;display:flex;gap:28px;margin:0;padding:0;align-items:center}
+nav a{text-decoration:none;font-weight:500;font-size:15px;color:var(--on-dark-muted)}
+nav a:hover{color:var(--on-dark)}
+nav .cta-small{color:var(--fjord);background:var(--on-dark);padding:9px 16px;border-radius:999px}
+nav .cta-small:hover{color:var(--fjord);background:#fff}
+@media (max-width:760px){nav li:not(:last-child){display:none}}
+
+.hero-inner{position:relative;z-index:2;padding:72px 0 220px;max-width:760px}
+.eyebrow{display:inline-flex;align-items:center;gap:10px;font-size:14px;font-weight:500;color:var(--on-dark-muted);margin-bottom:22px}
+.eyebrow::before{content:"";width:8px;height:8px;background:var(--pixel);border-radius:2px}
+.hero h1{font-size:clamp(40px,6.4vw,72px)}
+.hero h1 em{font-style:normal;color:var(--pixel)}
+.hero .lead{font-size:clamp(18px,2vw,21px);color:var(--on-dark-muted);margin-top:22px;max-width:580px}
+.btns{display:flex;flex-wrap:wrap;gap:12px;margin-top:36px}
+.btn{display:inline-flex;align-items:center;gap:8px;padding:14px 22px;border-radius:999px;font-weight:600;font-size:16px;text-decoration:none;transition:transform .15s,background .15s}
+.btn:hover{transform:translateY(-1px)}
+.btn-primary{background:var(--pixel);color:#06201E}
+.btn-primary:hover{background:#52B8B1}
+.btn-ghost{color:var(--on-dark);border:1px solid rgba(255,255,255,.25)}
+.btn-ghost:hover{border-color:rgba(255,255,255,.6)}
+
+/* Sections */
+section{padding:104px 0}
+@media (max-width:600px){section{padding:72px 0}}
+.sec-head{max-width:640px;margin-bottom:52px}
+.kicker{font-size:13px;font-weight:600;letter-spacing:.1em;text-transform:uppercase;color:var(--pixel-ink);margin-bottom:14px}
+.sec-head h2{font-size:clamp(30px,4vw,44px)}
+.sec-head p{color:var(--muted);margin-top:16px;font-size:18px}
+
+/* Services */
+.grid3{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
+@media (max-width:900px){.grid3{grid-template-columns:1fr}}
+.card{background:var(--card);border:1px solid var(--line);border-radius:var(--r);padding:32px}
+.card .ico{width:44px;height:44px;border-radius:10px;background:var(--soft);display:grid;place-items:center;margin-bottom:22px;color:var(--pixel-ink)}
+.card h3{font-size:21px;margin-bottom:10px}
+.card p{color:var(--muted);font-size:16px}
+.card ul{margin:16px 0 0;padding:0;list-style:none;font-size:15px}
+.card li{padding:6px 0 6px 20px;position:relative;border-top:1px solid var(--line)}
+.card li::before{content:"";position:absolute;left:0;top:15px;width:7px;height:7px;background:var(--pixel);border-radius:2px}
+
+/* References */
+#referencer{background:var(--soft)}
+.case{display:grid;grid-template-columns:1.35fr 1fr;gap:56px;align-items:center}
+@media (max-width:900px){.case{grid-template-columns:1fr;gap:36px}}
+.shots{position:relative;padding-bottom:40px}
+.browser{background:var(--card);border-radius:12px;overflow:hidden;box-shadow:0 30px 60px -20px rgba(15,34,51,.35);border:1px solid var(--line)}
+.browser-bar{display:flex;align-items:center;gap:6px;padding:10px 14px;background:var(--card);border-bottom:1px solid var(--line)}
+.browser-bar i{width:9px;height:9px;border-radius:50%;background:var(--line)}
+.browser-bar span{margin-left:12px;font-size:12px;color:var(--muted);background:var(--soft);padding:3px 12px;border-radius:999px}
+.phone{position:absolute;right:-12px;bottom:0;width:26%;border-radius:20px;overflow:hidden;border:5px solid #0F2233;box-shadow:0 20px 40px -12px rgba(15,34,51,.45);background:#0F2233}
+@media (max-width:600px){.phone{right:-4px;width:30%;border-width:4px;border-radius:14px}}
+.case-tag{display:inline-block;font-size:13px;font-weight:500;color:var(--pixel-ink);background:var(--card);border:1px solid var(--line);border-radius:999px;padding:4px 12px;margin-bottom:18px}
+.case h3{font-size:30px}
+.case p{color:var(--muted);margin-top:14px}
+.facts{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin:28px 0}
+.fact{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:16px}
+.fact strong{display:block;font-size:15px;font-weight:600}
+.fact span{font-size:14px;color:var(--muted)}
+.link-arrow{font-weight:600;color:var(--pixel-ink);text-decoration:none;display:inline-flex;gap:6px;align-items:center}
+.link-arrow:hover{text-decoration:underline;text-underline-offset:4px}
+.next-case{margin-top:72px;border:1.5px dashed var(--line);border-radius:var(--r);padding:36px;display:flex;flex-wrap:wrap;gap:20px;align-items:center;justify-content:space-between}
+.next-case h3{font-size:22px}
+.next-case p{color:var(--muted);margin-top:6px}
+.btn-dark{background:var(--fjord);color:var(--on-dark)}
+:root[data-theme="dark"] .btn-dark{background:var(--pixel);color:#06201E}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]) .btn-dark{background:var(--pixel);color:#06201E}}
+
+/* Process */
+.steps{display:grid;grid-template-columns:repeat(4,1fr);gap:0;counter-reset:s;border-top:1px solid var(--line)}
+@media (max-width:900px){.steps{grid-template-columns:1fr 1fr}}
+@media (max-width:560px){.steps{grid-template-columns:1fr}}
+.step{padding:28px 24px 8px 0;counter-increment:s}
+.step::before{content:"0" counter(s);display:block;font-size:14px;font-weight:600;color:var(--pixel-ink);margin-bottom:14px}
+.step h3{font-size:19px;margin-bottom:8px}
+.step p{color:var(--muted);font-size:15px}
+
+/* FAQ */
+#spoergsmaal{border-top:1px solid var(--line)}
+.faq{max-width:780px}
+.faq details{border-bottom:1px solid var(--line)}
+.faq summary{list-style:none;cursor:pointer;display:flex;justify-content:space-between;gap:20px;padding:22px 0;font-weight:600;font-size:18px}
+.faq summary::-webkit-details-marker{display:none}
+.faq summary::after{content:"+";display:inline-block;color:var(--pixel-ink);font-size:24px;line-height:1;transition:transform .2s}
+.faq details[open] summary::after{transform:rotate(45deg)}
+.faq details p{color:var(--muted);padding:0 0 22px;max-width:680px}
+
+/* About */
+#om{background:var(--sand)}
+.about{display:grid;grid-template-columns:1fr 1fr;gap:64px;align-items:start}
+@media (max-width:900px){.about{grid-template-columns:1fr;gap:32px}}
+.about h2{font-size:clamp(30px,4vw,44px)}
+.about p+p{margin-top:16px}
+.about p{color:var(--muted);font-size:18px}
+.values{display:grid;gap:14px}
+.value{display:flex;gap:16px;align-items:flex-start;background:var(--card);border-radius:12px;padding:20px;border:1px solid var(--line)}
+.value b{flex:none;width:10px;height:10px;margin-top:8px;background:var(--pixel);border-radius:2px}
+.value strong{display:block}
+.value span{color:var(--muted);font-size:15px}
+
+/* Contact */
+#kontakt{background:var(--fjord);color:var(--on-dark)}
+.contact{display:grid;grid-template-columns:1.1fr 1fr;gap:56px;align-items:center}
+@media (max-width:900px){.contact{grid-template-columns:1fr;gap:36px}}
+#kontakt h2{font-size:clamp(32px,4.4vw,50px)}
+#kontakt p{color:var(--on-dark-muted);font-size:18px;margin-top:16px;max-width:480px}
+.contact-box{background:var(--fjord-2);border-radius:var(--r);padding:32px;border:1px solid rgba(255,255,255,.08)}
+.contact-row{display:flex;justify-content:space-between;gap:16px;padding:16px 0;border-bottom:1px solid rgba(255,255,255,.1);font-size:16px}
+.contact-row:last-of-type{border-bottom:0}
+.contact-row span{color:var(--on-dark-muted)}
+.contact-row a{text-decoration:none;font-weight:600;word-break:break-all}
+.contact-row a:hover{color:var(--pixel)}
+.contact-box .btn{width:100%;justify-content:center;margin-top:20px}
+
+footer{background:var(--fjord);color:var(--on-dark-muted);font-size:14px;border-top:1px solid rgba(255,255,255,.08)}
+footer .wrap{display:flex;flex-wrap:wrap;gap:12px;justify-content:space-between;align-items:center;padding-top:28px;padding-bottom:28px}
+footer .logo{color:var(--on-dark);font-size:16px}
+.theme-btn{background:none;border:1px solid rgba(255,255,255,.2);color:var(--on-dark-muted);border-radius:999px;padding:6px 12px;font:inherit;cursor:pointer}
+.theme-btn:hover{color:var(--on-dark)}
+
+@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}.btn{transition:none}}
+</style>
+</head>
+<body>
+<a class="skip" href="#indhold">Spring til indhold</a>
+
+<div class="hero">
+  <div class="wrap">
+    <header>
+      <a class="logo" href="#" aria-label="Sidesmart – forside">
+        <svg class="logo-mark" viewBox="0 0 24 24" aria-hidden="true"><rect width="24" height="24" rx="6" fill="currentColor"/><path d="M6.5 12.5l3.5 3.5 7.5-8" fill="none" stroke="var(--pixel)" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        <span>Side<b>smart</b></span>
+      </a>
+      <nav aria-label="Hovedmenu">
+        <ul>
+          <li><a href="#ydelser">Ydelser</a></li>
+          <li><a href="#referencer">Referencer</a></li>
+          <li><a href="#proces">Sådan arbejder vi</a></li>
+          <li><a href="#om">Om os</a></li>
+          <li><a class="cta-small" href="#kontakt">Kontakt</a></li>
+        </ul>
+      </nav>
+    </header>
+
+    <div class="hero-inner">
+      <p class="eyebrow">Webdesign og hjemmesideudvikling</p>
+      <h1>Hjemmesider med <em>nordisk ro</em>.</h1>
+      <p class="lead">Vi designer og udvikler hurtige, enkle og mobilvenlige hjemmesider til danske virksomheder. Uden unødvendigt pynt, og så I nemt kan holde dem opdaterede.</p>
+      <div class="btns">
+        <a class="btn btn-primary" href="#kontakt">Få et uforpligtende tilbud</a>
+        <a class="btn btn-ghost" href="#referencer">Se vores arbejde</a>
+      </div>
+    </div>
+  </div>
+</div>
+
+<main id="indhold">
+
+<section id="ydelser">
+  <div class="wrap">
+    <div class="sec-head">
+      <p class="kicker">Ydelser</p>
+      <h2>Webdesign og udvikling af hjemmesider</h2>
+      <p>Fra den første skitse til siden er online, og bagefter, når der skal rettes eller tilføjes noget.</p>
+    </div>
+    <div class="grid3">
+      <article class="card">
+        <div class="ico" aria-hidden="true"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><rect x="3" y="4" width="18" height="14" rx="2"/><path d="M3 8h18M8 21h8"/></svg></div>
+        <h3>Ny hjemmeside</h3>
+        <p>Design og udvikling skræddersyet til jeres virksomhed og kunder.</p>
+        <ul><li>Mobilvenlig fra start</li><li>Hurtig at indlæse</li><li>Synlig på Google</li></ul>
+      </article>
+      <article class="card">
+        <div class="ico" aria-hidden="true"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><path d="M4 20h4L19 9l-4-4L4 16v4z"/><path d="M13 7l4 4"/></svg></div>
+        <h3>Redesign</h3>
+        <p>Vi giver en gammel side nyt liv uden at I mister jeres placering på Google.</p>
+        <ul><li>Flytning fra WordPress</li><li>Gamle links virker stadig</li><li>Nyt, roligt udtryk</li></ul>
+      </article>
+      <article class="card">
+        <div class="ico" aria-hidden="true"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><path d="M21 12a9 9 0 1 1-3-6.7"/><path d="M21 4v5h-5"/></svg></div>
+        <h3>Drift og automatik</h3>
+        <p>Vi holder siden kørende og kobler den på de systemer, I allerede bruger.</p>
+        <ul><li>Data hentes automatisk</li><li>Hosting og domæne</li><li>Hurtig hjælp ved ændringer</li></ul>
+      </article>
+    </div>
+  </div>
+</section>
+
+<section id="referencer">
+  <div class="wrap">
+    <div class="sec-head">
+      <p class="kicker">Referencer</p>
+      <h2>Hjemmesider vi har udviklet</h2>
+      <p>Et kig på hjemmesider, vi har bygget.</p>
+    </div>
+
+    <article class="case">
+      <div class="shots">
+        <div class="browser">
+          <div class="browser-bar" aria-hidden="true"><i></i><i></i><i></i><span>øes.dk</span></div>
+          <img src="oes-desktop.jpg" width="1440" height="900" alt="Forsiden af øes.dk med overskriften 'Lejeboliger på Sjælland og øerne'" loading="lazy">
+        </div>
+        <div class="phone"><img src="oes-mobil.jpg" width="750" height="1624" alt="øes.dk vist på en mobiltelefon" loading="lazy"></div>
+      </div>
+      <div>
+        <span class="case-tag">Ejendomsselskab · Redesign</span>
+        <h3>Øernes Ejendomsselskab</h3>
+        <p>Ny hjemmeside til et udlejningsselskab på Sjælland og øerne. Ledige lejeboliger hentes automatisk fra deres udlejningssystem hver time, så siden altid er opdateret, uden at nogen skal røre den.</p>
+        <div class="facts">
+          <div class="fact"><strong>Automatisk</strong><span>Boliger opdateres hver time</span></div>
+          <div class="fact"><strong>Hurtig</strong><span>Ren HTML uden tunge plugins</span></div>
+          <div class="fact"><strong>Mobilvenlig</strong><span>Lavet til telefonen først</span></div>
+          <div class="fact"><strong>Fra WordPress</strong><span>Gamle links sendes videre</span></div>
+        </div>
+        <a class="link-arrow" href="https://xn--es-kka.dk" target="_blank" rel="noopener">Besøg øes.dk <span aria-hidden="true">→</span></a>
+      </div>
+    </article>
+
+    <div class="next-case">
+      <div>
+        <h3>Skal jeres side være den næste?</h3>
+        <p>Vi tager nye opgaver ind løbende.</p>
+      </div>
+      <a class="btn btn-dark" href="#kontakt">Fortæl os om jeres projekt</a>
+    </div>
+  </div>
+</section>
+
+<section id="proces">
+  <div class="wrap">
+    <div class="sec-head">
+      <p class="kicker">Sådan arbejder vi</p>
+      <h2>Fire enkle trin</h2>
+    </div>
+    <div class="steps">
+      <div class="step"><h3>Snak</h3><p>Vi tager en uforpligtende snak om jeres virksomhed, kunder og ønsker.</p></div>
+      <div class="step"><h3>Skitse</h3><p>I får et udkast at se, før vi bygger. Vi retter, til I er tilfredse.</p></div>
+      <div class="step"><h3>Byg</h3><p>Vi bygger siden, så den er hurtig, mobilvenlig og nem at finde.</p></div>
+      <div class="step"><h3>Online</h3><p>Siden går live på jeres domæne, og vi er der stadig bagefter.</p></div>
+    </div>
+  </div>
+</section>
+
+<section id="spoergsmaal">
+  <div class="wrap">
+    <div class="sec-head">
+      <p class="kicker">Spørgsmål</p>
+      <h2>Ofte stillede spørgsmål om at få lavet en hjemmeside</h2>
+    </div>
+    <!-- Holdes i sync med FAQPage-dataene øverst i <head> -->
+    <div class="faq">
+      <details><summary>Hvad koster en ny hjemmeside?</summary><p>Prisen afhænger af, hvor mange sider I har brug for, og om siden skal kobles på andre systemer. Efter en kort snak får I en fast pris, så der ikke kommer overraskelser.</p></details>
+      <details><summary>Hvor lang tid tager det at lave en hjemmeside?</summary><p>En mindre hjemmeside kan typisk være klar på få uger. Større projekter tager længere, og I får en tidsplan, før vi går i gang.</p></details>
+      <details><summary>Kan I hjælpe med at blive fundet på Google?</summary><p>Ja. Alle vores hjemmesider bygges hurtige, mobilvenlige og med de rigtige titler, beskrivelser og strukturerede data, så Google nemt kan forstå dem.</p></details>
+      <details><summary>Kan I overtage og forny vores gamle hjemmeside?</summary><p>Ja. Vi kan flytte jer fra fx WordPress til en ny side og sørge for, at gamle links sendes videre, så I ikke mister jeres placering på Google.</p></details>
+      <details><summary>Hvad sker der, når siden er online?</summary><p>Vi kan stå for hosting, domæne og løbende ændringer, så I ikke selv skal tænke på det.</p></details>
+    </div>
+  </div>
+</section>
+
+<section id="om">
+  <div class="wrap about">
+    <div>
+      <p class="kicker">Om os</p>
+      <h2>Et lille studie med kort vej fra idé til færdig side</h2>
+    </div>
+    <div>
+      <!-- RET: skriv et par linjer om jer selv – hvem I er, og hvorfor I startede Sidesmart. -->
+      <p>Sidesmart er et lille dansk webstudie. Når I arbejder med os, taler I direkte med dem, der bygger jeres side. Ingen mellemled og ingen lange ventetider.</p>
+      <p>Vi tror på hjemmesider, der er rolige at se på, hurtige at bruge og nemme at holde ved lige.</p>
+      <div class="values" style="margin-top:32px">
+        <div class="value"><b></b><div><strong>Enkelt</strong><span>Kun det jeres kunder har brug for.</span></div></div>
+        <div class="value"><b></b><div><strong>Ærligt</strong><span>Klar pris og klar besked fra start.</span></div></div>
+        <div class="value"><b></b><div><strong>Holdbart</strong><span>Bygget til at fungere i mange år.</span></div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="kontakt">
+  <div class="wrap contact">
+    <div>
+      <p class="kicker" style="color:var(--pixel)">Kontakt</p>
+      <h2>Lad os bygge noget godt sammen</h2>
+      <p>Skriv et par linjer om, hvad I har brug for, så vender vi tilbage inden for en arbejdsdag med et uforpligtende tilbud.</p>
+    </div>
+    <div class="contact-box">
+      <!-- RET: indsæt jeres rigtige mail og telefonnummer -->
+      <div class="contact-row"><span>Mail</span><a href="mailto:kontakt@sidesmart.dk">kontakt@sidesmart.dk</a></div>
+      <div class="contact-row"><span>Telefon</span><a href="tel:+4500000000">00 00 00 00</a></div>
+      <div class="contact-row"><span>Område</span><strong>Hele Danmark</strong></div>
+      <a class="btn btn-primary" href="mailto:kontakt@sidesmart.dk?subject=Ny%20hjemmeside">Skriv til os</a>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<footer>
+  <div class="wrap">
+    <span class="logo"><svg class="logo-mark" viewBox="0 0 24 24" aria-hidden="true"><rect width="24" height="24" rx="6" fill="currentColor"/><path d="M6.5 12.5l3.5 3.5 7.5-8" fill="none" stroke="var(--pixel)" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/></svg><span>Side<b>smart</b></span></span>
+    <!-- RET: tilføj CVR-nummer når virksomheden er registreret -->
+    <span>© <span id="aar">2026</span> Sidesmart · sidesmart.dk</span>
+    <button class="theme-btn" id="tema" type="button">Mørkt tema</button>
+  </div>
+</footer>
+
+<script>
+(function(){
+  document.getElementById("aar").textContent=new Date().getFullYear();
+  var root=document.documentElement,btn=document.getElementById("tema");
+  function isDark(){var t=root.getAttribute("data-theme");return t?t==="dark":matchMedia("(prefers-color-scheme: dark)").matches}
+  function label(){btn.textContent=isDark()?"Lyst tema":"Mørkt tema"}
+  try{var s=localStorage.getItem("tema");if(s)root.setAttribute("data-theme",s)}catch(e){}
+  label();
+  btn.addEventListener("click",function(){var n=isDark()?"light":"dark";root.setAttribute("data-theme",n);try{localStorage.setItem("tema",n)}catch(e){}label()});
+})();
+</script>
+</body>
+</html>
