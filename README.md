@@ -12,6 +12,8 @@ Hjemmeside for webstudiet Sidesmart (sidesmart.dk). Ren HTML og CSS uden byggetr
 - `CNAME` – fortæller GitHub Pages, at siden ligger på sidesmart.dk
 - `.nojekyll` – GitHub Pages udgiver filerne, som de er
 - `robots.txt`, `sitemap.xml` – til Google
+- `privatliv.html` – privatliv og cookies
+- `samtykke.js` – cookie-banner. Vises kun, når der er sat et Meta Pixel- eller Google-id øverst i filen; sporing indlæses først efter ja
 
 ## Ret før siden går live
 

@@ -303,6 +303,7 @@ section{padding:104px 0}
 @media (max-width:520px){.form-2{grid-template-columns:1fr}}
 .contact-form .btn{margin-top:6px;border:0;cursor:pointer;font:inherit;font-weight:600}
 .contact-form .btn[disabled]{opacity:.6;cursor:wait}
+#kontakt .form-note a{color:inherit}
 #kontakt .form-note{font-size:14px;margin:0;max-width:none}
 #kontakt .form-note.ok{color:var(--pixel)}
 #kontakt .form-note.fejl{color:#F2A7A0}
@@ -312,6 +313,8 @@ section{padding:104px 0}
 footer{background:var(--fjord);color:var(--on-dark-muted);font-size:14px;border-top:1px solid rgba(255,255,255,.08)}
 footer .wrap{display:flex;flex-wrap:wrap;gap:12px;justify-content:space-between;align-items:center;padding-top:28px;padding-bottom:28px}
 footer .logo{color:var(--on-dark);font-size:16px}
+.foot-link{color:inherit;text-underline-offset:3px}
+.foot-link:hover{color:var(--on-dark)}
 .theme-btn{background:none;border:1px solid rgba(255,255,255,.2);color:var(--on-dark-muted);border-radius:999px;padding:6px 12px;font:inherit;cursor:pointer}
 .theme-btn:hover{color:var(--on-dark)}
 
@@ -530,7 +533,7 @@ footer .logo{color:var(--on-dark);font-size:16px}
       </div>
       <label>Hvad laver jeres virksomhed, og hvad skal hjemmesiden kunne?<textarea name="besked" rows="4" required></textarea></label>
       <button class="btn btn-primary" type="submit">Få jeres gratis eksempel</button>
-      <p class="form-note" id="formstatus" role="status">Vi svarer inden for en arbejdsdag. Vi bruger kun jeres oplysninger til at svare jer.</p>
+      <p class="form-note" id="formstatus" role="status">Vi svarer inden for en arbejdsdag. Vi bruger kun jeres oplysninger til at svare jer. <a href="/privatliv.html">Læs mere</a></p>
     </form>
   </div>
 </section>
@@ -540,7 +543,7 @@ footer .logo{color:var(--on-dark);font-size:16px}
 <footer>
   <div class="wrap">
     <span class="logo"><svg class="logo-mark" viewBox="0 0 24 24" aria-hidden="true"><rect width="24" height="24" rx="6" fill="currentColor"/><path d="M6.5 12.5l3.5 3.5 7.5-8" fill="none" stroke="var(--pixel)" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/></svg><span>Side<b>smart</b></span></span>
-    <span>© <span id="aar">2026</span> Sidesmart · sidesmart.dk</span>
+    <span>© <span id="aar">2026</span> Sidesmart · <a class="foot-link" href="/privatliv.html">Privatliv og cookies</a></span>
     <button class="theme-btn" id="tema" type="button">Mørkt tema</button>
   </div>
 </footer>
@@ -577,5 +580,6 @@ footer .logo{color:var(--on-dark);font-size:16px}
   });
 })();
 </script>
+<script src="/samtykke.js"></script>
 </body>
 </html>

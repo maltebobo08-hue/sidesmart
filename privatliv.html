@@ -1,0 +1,83 @@
+<!doctype html>
+<html lang="da">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Privatliv og cookies | Sidesmart</title>
+<meta name="description" content="Sådan behandler Sidesmart jeres oplysninger, og hvilke cookies sidesmart.dk bruger.">
+<link rel="canonical" href="https://sidesmart.dk/privatliv.html">
+<link rel="icon" href="/favicon.svg" type="image/svg+xml">
+<meta name="theme-color" content="#0F2233">
+<script>(function(){var t="dark";try{t=localStorage.getItem("tema")||"dark"}catch(e){}document.documentElement.setAttribute("data-theme",t)})();</script>
+<style>
+@font-face{font-family:"Inter";font-weight:400;font-display:swap;src:url(/inter-400.woff2) format("woff2")}
+@font-face{font-family:"Inter";font-weight:600;font-display:swap;src:url(/inter-600.woff2) format("woff2")}
+:root{--bg:#FAFAF7;--ink:#14212E;--muted:#5A6878;--line:#DDE3E3;--accent:#0B6B66;color-scheme:light}
+:root[data-theme="dark"]{--bg:#0B1620;--ink:#E8EEF0;--muted:#9AAAB6;--line:#203241;--accent:#6FD0C8;color-scheme:dark}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--ink);font:400 17px/1.65 "Inter",system-ui,sans-serif;-webkit-font-smoothing:antialiased}
+.wrap{max-width:720px;margin:0 auto;padding:40px 24px 80px}
+@media (max-width:600px){.wrap{padding:28px 16px 64px}}
+.top{display:flex;justify-content:space-between;align-items:center;margin-bottom:48px}
+.logo{display:inline-flex;align-items:center;gap:10px;text-decoration:none;color:inherit;font-weight:600;font-size:18px}
+.logo b{font-weight:400;opacity:.7}
+.back{color:var(--accent);font-weight:600;text-decoration:none}
+h1{font-size:clamp(30px,5vw,42px);letter-spacing:-.02em;line-height:1.15;margin:0 0 12px}
+h2{font-size:21px;margin:40px 0 8px;letter-spacing:-.01em}
+p,li{color:var(--muted)}
+ul{padding-left:20px}
+a{color:var(--accent)}
+a[href^="tel:"]{white-space:nowrap}
+.box{border:1px solid var(--line);border-radius:12px;padding:16px 20px;margin-top:16px}
+button.link{font:inherit;color:var(--accent);background:none;border:0;padding:0;text-decoration:underline;cursor:pointer}
+.small{font-size:14px}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <div class="top">
+    <a class="logo" href="/"><svg width="24" height="24" viewBox="0 0 24 24" aria-hidden="true"><rect width="24" height="24" rx="6" fill="currentColor"/><path d="M6.5 12.5l3.5 3.5 7.5-8" fill="none" stroke="#3FA7A0" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/></svg><span>Side<b>smart</b></span></a>
+    <a class="back" href="/">← Til forsiden</a>
+  </div>
+
+  <h1>Privatliv og cookies</h1>
+  <p>Her kan I læse, hvilke oplysninger vi får, når I bruger sidesmart.dk, og hvad vi bruger dem til.</p>
+
+  <h2>Hvem er vi?</h2>
+  <p>Sidesmart laver hjemmesider. Har I spørgsmål om jeres oplysninger, så skriv til <a href="mailto:william@sidesmart.dk">william@sidesmart.dk</a> eller ring på <a href="tel:+4550542109">50 54 21 09</a>.</p>
+
+  <h2>Kontaktformularen</h2>
+  <p>Når I skriver til os via formularen, får vi det, I selv skriver: navn, mail, telefonnummer (hvis I skriver det) og jeres besked.</p>
+  <ul>
+    <li>Vi bruger det kun til at svare jer og lave jeres gratis eksempel.</li>
+    <li>Beskeden sendes til vores mail via tjenesten FormSubmit (formsubmit.co).</li>
+    <li>Vi sælger eller deler aldrig jeres oplysninger med andre.</li>
+    <li>Bliver I ikke kunde, sletter vi henvendelsen senest efter 12 måneder.</li>
+  </ul>
+
+  <h2>Cookies</h2>
+  <p id="cookie-status">Sidesmart.dk bruger <strong>ingen sporings-cookies</strong> lige nu. Vi gemmer kun jeres valg af lyst eller mørkt tema i jeres egen browser. Det sendes ikke til os eller andre.</p>
+  <div class="box" id="cookie-boks" hidden>
+    <p>Bruger vi annonce-cookies (fx fra Facebook eller Google), spørger vi altid først via et banner. Siden virker fint, selvom I siger nej.</p>
+    <p><button class="link" type="button" id="skift-valg">Skift jeres cookie-valg</button></p>
+  </div>
+
+  <h2>Jeres rettigheder</h2>
+  <p>I har altid ret til at få at vide, hvad vi har gemt om jer, få det rettet eller slettet, og til at trække et samtykke tilbage. Skriv eller ring, så klarer vi det. I kan også klage til <a href="https://www.datatilsynet.dk" rel="noopener">Datatilsynet</a>.</p>
+
+  <p class="small" style="margin-top:48px">Senest opdateret: 26. november 2026</p>
+</div>
+
+<script src="/samtykke.js"></script>
+<script>
+(function(){
+  var c=window.SIDESMART_SPORING||{};
+  if(c.metaPixelId||c.googleTagId){
+    document.getElementById("cookie-status").innerHTML="Sidesmart.dk bruger cookies til at måle, hvor godt vores annoncer virker (fx Facebook Pixel eller Google), <strong>men kun hvis I har sagt ja</strong> i cookie-banneret. Vi gemmer også jeres valg af lyst eller mørkt tema i jeres egen browser.";
+    document.getElementById("cookie-boks").hidden=false;
+    document.getElementById("skift-valg").addEventListener("click",function(){window.aabnCookieValg()});
+  }
+})();
+</script>
+</body>
+</html>
