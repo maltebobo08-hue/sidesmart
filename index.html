@@ -35,7 +35,7 @@
       "@type": "FAQPage",
       "mainEntity": [
         { "@type": "Question", "name": "Hvad koster en ny hjemmeside?",
-          "acceptedAnswer": { "@type": "Answer", "text": "I får først et gratis eksempel på jeres nye hjemmeside. Kan I lide det, koster selve udviklingen af hjemmesiden 750 kr., og hosting koster 200 kr. om måneden." } },
+          "acceptedAnswer": { "@type": "Answer", "text": "I får først et gratis eksempel på jeres nye hjemmeside. Kan I lide det, koster hele hjemmesiden 1.000 kr. Hosting koster 300 kr. om måneden eller 3.200 kr. om året." } },
         { "@type": "Question", "name": "Hvor lang tid tager det at lave en hjemmeside?",
           "acceptedAnswer": { "@type": "Answer", "text": "Typisk er jeres hjemmeside klar på 3-4 dage, og det tager højst en uge." } },
         { "@type": "Question", "name": "Kan I hjælpe med at blive fundet på Google?",
@@ -254,7 +254,8 @@ section{padding:104px 0}
 .faq .prices{list-style:none;margin:-8px 0 22px;padding:0;max-width:420px}
 .faq .prices li{display:flex;justify-content:space-between;gap:16px;padding:10px 0;border-bottom:1px solid var(--line);color:var(--muted)}
 .faq .prices li:last-child{border-bottom:0}
-.faq .prices strong{color:var(--ink)}
+.faq .prices strong{color:var(--ink);white-space:nowrap}
+.faq .prices .save{font-style:normal;font-size:12px;font-weight:600;color:var(--pixel-ink);margin-left:6px;white-space:nowrap}
 .faq details p{color:var(--muted);padding:0 0 22px;max-width:680px}
 
 /* About */
@@ -444,7 +445,7 @@ footer .logo{color:var(--on-dark);font-size:16px}
     </div>
     <!-- Holdes i sync med FAQPage-dataene øverst i <head> -->
     <div class="faq">
-      <details><summary>Hvad koster en ny hjemmeside?</summary><p>I får først et <strong>gratis eksempel</strong> på jeres nye hjemmeside. Kan I lide det, koster det:</p><ul class="prices"><li><span>Hjemmeside-eksempel</span><strong>Gratis</strong></li><li><span>Udvikling af hjemmesiden</span><strong>750 kr.</strong></li><li><span>Hosting</span><strong>200 kr./md.</strong></li></ul></details>
+      <details><summary>Hvad koster en ny hjemmeside?</summary><p>I får først et <strong>gratis eksempel</strong> på jeres nye hjemmeside. Kan I lide det, koster det:</p><ul class="prices"><li><span>Hjemmeside-eksempel</span><strong>Gratis</strong></li><li><span>Hele hjemmesiden</span><strong>1.000 kr.</strong></li><li><span>Hosting pr. måned</span><strong>300 kr./md.</strong></li><li><span>Hosting pr. år <em class="save">spar 400 kr.</em></span><strong>3.200 kr./år</strong></li></ul></details>
       <details><summary>Hvor lang tid tager det at lave en hjemmeside?</summary><p>Typisk er jeres hjemmeside klar på <span class="nowrap">3-4 dage</span>, og det tager højst en uge.</p></details>
       <details><summary>Kan I hjælpe med at blive fundet på Google?</summary><p>Ja. Alle vores hjemmesider bygges hurtige, mobilvenlige og med de rigtige titler, beskrivelser og strukturerede data, så Google nemt kan forstå dem.</p></details>
       <details><summary>Kan I overtage og forny vores gamle hjemmeside?</summary><p>Ja. Vi kan flytte jer fra fx WordPress til en ny side og sørge for, at gamle links sendes videre, så I ikke mister jeres placering på Google.</p></details>
