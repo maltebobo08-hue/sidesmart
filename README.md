@@ -17,7 +17,6 @@ Hjemmeside for webstudiet Sidesmart (sidesmart.dk). Ren HTML og CSS uden byggetr
 
 Søg efter `RET:` i `index.html`:
 
-- Mail og telefonnummer i kontaktboksen
 - Tekst om jer selv under "Om os"
 - CVR-nummer i bunden
 
