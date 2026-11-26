@@ -560,7 +560,7 @@ footer .logo{color:var(--on-dark);font-size:16px}
   if(/[?&]tak=1/.test(location.search)){st.textContent="Tak! Vi har modtaget jeres besked og vender tilbage inden for en arbejdsdag.";st.className="form-note ok"}
   f.addEventListener("submit",function(e){
     e.preventDefault();
-    var b=f.querySelector("button");b.disabled=true;b.textContent="Sender…";
+    var b=f.querySelector("button");b.disabled=true;b.textContent="Sender…";st.textContent="Sender jeres besked. Det kan tage op til et halvt minut, så luk ikke siden.";st.className="form-note";
     fetch("https://formsubmit.co/ajax/william@sidesmart.dk",{method:"POST",headers:{"Accept":"application/json"},body:new FormData(f)})
       .then(function(r){return r.json()})
       .then(function(d){
