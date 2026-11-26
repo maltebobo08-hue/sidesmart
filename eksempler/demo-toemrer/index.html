@@ -1,0 +1,208 @@
+<!doctype html>
+<html lang="da">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Eksempel Tømrer &amp; Snedker – Tømrer og snedker i Næstved</title>
+<meta name="description" content="Vi hjælper private og erhverv i Næstved og omegn med alt fra nye vinduer og døre til tagrenovering og tilbygninger.">
+<meta name="robots" content="noindex, nofollow">
+<meta name="theme-color" content="#2F3E46">
+<link rel="preload" href="inter-600.woff2" as="font" type="font/woff2" crossorigin>
+<style>
+@font-face{font-family:"Inter";font-weight:400;font-display:swap;src:url(inter-400.woff2) format("woff2")}
+@font-face{font-family:"Inter";font-weight:600;font-display:swap;src:url(inter-600.woff2) format("woff2")}
+:root{--hi:#2F3E46;--prim:#2F3E46;--on-prim:#FFFFFF;--acc:#E09F3E;--on-acc:#111111;--bg:#FFFFFF;--card:#FFFFFF;--soft:#F4F6F8;--ink:#141A1F;--muted:#55616C;--line:#E2E7EB;--r:14px}
+*,*::before,*::after{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%;scroll-behavior:smooth}
+body{margin:0;background:var(--bg);color:var(--ink);font:400 17px/1.65 "Inter",system-ui,-apple-system,"Segoe UI",sans-serif;-webkit-font-smoothing:antialiased}
+img{max-width:100%;height:auto;display:block}
+a{color:inherit}
+h1,h2,h3{font-weight:600;letter-spacing:-.02em;line-height:1.15;margin:0}
+p{margin:0}
+:focus-visible{outline:2px solid var(--acc);outline-offset:3px;border-radius:4px}
+.wrap{max-width:1100px;margin:0 auto;padding:0 24px}
+@media (max-width:600px){.wrap{padding:0 16px}}
+.demo-bar{background:#111;color:#eee;font-size:13px;text-align:center;padding:8px 16px}
+.demo-bar a{color:#fff;font-weight:600}
+header.top{background:var(--prim);color:var(--on-prim)}
+.nav{display:flex;align-items:center;justify-content:space-between;gap:16px;padding:18px 0}
+.logo{display:inline-flex;align-items:center;gap:10px;font-weight:600;font-size:19px;text-decoration:none}
+.logo-badge{width:34px;height:34px;border-radius:9px;background:var(--acc);color:var(--on-acc);display:grid;place-items:center;font-weight:600}
+.logo-img{height:40px;width:auto}
+.nav ul{list-style:none;display:flex;gap:26px;margin:0;padding:0;align-items:center}
+.nav ul a{text-decoration:none;font-weight:500;font-size:15px;opacity:.85}
+.nav ul a:hover{opacity:1}
+.nav .call{display:inline-flex;align-items:center;gap:8px;background:var(--acc);color:var(--on-acc);padding:10px 16px;border-radius:999px;font-weight:600;opacity:1}
+@media (max-width:820px){.nav ul li:not(:last-child){display:none}}
+.hero{background:var(--prim);color:var(--on-prim);padding:40px 0 80px}
+.hero .wrap{display:grid;grid-template-columns:1.1fr .9fr;gap:48px;align-items:center}
+@media (max-width:860px){.hero .wrap{grid-template-columns:1fr;gap:36px}}
+.hero .kicker{color:inherit;opacity:.8;font-size:14px;font-weight:600;letter-spacing:.08em;text-transform:uppercase}
+.hero h1{font-size:clamp(34px,5vw,56px);margin-top:12px}
+.hero .lead{font-size:clamp(17px,2vw,20px);margin-top:18px;opacity:.9;max-width:560px}
+.btns{display:flex;flex-wrap:wrap;gap:12px;margin-top:28px}
+.btn{display:inline-flex;align-items:center;gap:8px;padding:14px 22px;border-radius:999px;font-weight:600;font-size:16px;text-decoration:none;border:0;cursor:pointer;font-family:inherit}
+.btn-acc{background:var(--acc);color:var(--on-acc)}
+.btn-line{border:1px solid currentColor;color:inherit;opacity:.9}
+.perks{list-style:none;padding:0;margin:28px 0 0;display:grid;gap:8px}
+.perks li{display:flex;gap:10px;align-items:center;font-weight:500}
+.perks svg{color:var(--acc);flex:none}
+.hero-img{border-radius:18px;box-shadow:0 30px 60px -24px rgba(0,0,0,.45);aspect-ratio:4/3;object-fit:cover;width:100%}
+.hero-art{aspect-ratio:4/3;border-radius:18px;display:grid;place-items:center;color:var(--acc);background:radial-gradient(circle at 30% 20%,rgba(255,255,255,.18),transparent 60%),rgba(0,0,0,.18);border:1px solid rgba(255,255,255,.15)}
+section{padding:80px 0}
+section+section{border-top:1px solid var(--line)}
+.kicker{font-size:13px;font-weight:600;letter-spacing:.1em;text-transform:uppercase;color:var(--hi)}
+section h2{font-size:clamp(28px,3.6vw,40px);margin-top:10px;max-width:700px}
+.sub{color:var(--muted);margin-top:12px;font-size:18px;max-width:640px}
+.grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;margin-top:40px}
+@media (max-width:900px){.grid{grid-template-columns:1fr 1fr}}
+@media (max-width:600px){.grid{grid-template-columns:1fr}}
+.card{background:var(--card);border:1px solid var(--line);border-radius:var(--r);padding:26px}
+.card .ico{width:48px;height:48px;border-radius:12px;display:grid;place-items:center;background:var(--soft);color:var(--hi);margin-bottom:18px}
+.card h3{font-size:19px;margin-bottom:8px}
+.card p{color:var(--muted);font-size:16px}
+.gallery{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin-top:36px}
+@media (max-width:760px){.gallery{grid-template-columns:1fr 1fr}}
+.gallery figure{margin:0;border-radius:12px;overflow:hidden;background:var(--soft);position:relative}
+.gallery img{aspect-ratio:4/3;object-fit:cover;width:100%}
+.gallery figcaption{position:absolute;left:10px;bottom:10px;background:rgba(0,0,0,.65);color:#fff;font-size:13px;padding:4px 10px;border-radius:999px}
+.gallery .ph div{aspect-ratio:4/3;display:grid;place-items:center;align-content:center;gap:8px;color:var(--muted);border:2px dashed var(--line);border-radius:12px}
+.gallery .ph span{font-size:14px}
+.about{display:grid;grid-template-columns:1fr 1fr;gap:56px;align-items:start}
+@media (max-width:860px){.about{grid-template-columns:1fr;gap:28px}}
+.about p{color:var(--muted);font-size:18px;margin-top:14px}
+.towns{display:flex;flex-wrap:wrap;gap:8px;list-style:none;padding:0;margin:22px 0 0}
+.towns li{background:var(--soft);border:1px solid var(--line);border-radius:999px;padding:6px 14px;font-size:15px;font-weight:500}
+#kontakt{background:var(--soft)}
+.contact{display:grid;grid-template-columns:1fr 1fr;gap:48px;align-items:start;margin-top:36px}
+@media (max-width:860px){.contact{grid-template-columns:1fr}}
+.info{background:var(--card);border:1px solid var(--line);border-radius:var(--r);padding:8px 24px}
+.row{display:flex;justify-content:space-between;gap:16px;padding:14px 0;border-bottom:1px solid var(--line)}
+.row:last-child{border-bottom:0}
+.row span{color:var(--muted)}
+.row a{font-weight:600;text-decoration:none}
+.times{margin-top:18px}
+form{background:var(--card);border:1px solid var(--line);border-radius:var(--r);padding:24px;display:grid;gap:14px}
+label{display:grid;gap:6px;font-size:14px;font-weight:500;color:var(--muted)}
+input,textarea{font:inherit;font-size:16px;color:var(--ink);background:var(--bg);border:1px solid var(--line);border-radius:10px;padding:12px 14px;width:100%}
+textarea{min-height:110px;resize:vertical}
+form .note{font-size:13px;color:var(--muted)}
+button[disabled]{opacity:.6;cursor:not-allowed}
+footer{background:var(--prim);color:var(--on-prim);font-size:14px}
+footer .wrap{display:flex;flex-wrap:wrap;gap:10px 24px;justify-content:space-between;padding-top:26px;padding-bottom:26px;opacity:.9}
+footer a{text-underline-offset:3px}
+.fab{display:none}
+@media (max-width:760px){.fab{position:fixed;right:16px;bottom:calc(16px + env(safe-area-inset-bottom,0px));z-index:20;display:inline-flex;align-items:center;gap:8px;padding:13px 20px;border-radius:999px;background:var(--acc);color:var(--on-acc);font-weight:600;text-decoration:none;box-shadow:0 10px 24px -6px rgba(0,0,0,.4)}footer .wrap{padding-bottom:96px}}
+@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
+</style>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "LocalBusiness",
+  "name": "Eksempel Tømrer & Snedker",
+  "description": "Vi hjælper private og erhverv i Næstved og omegn med alt fra nye vinduer og døre til tagrenovering og tilbygninger.",
+  "telephone": "12 34 56 78",
+  "email": "kontakt@eksempel-toemrer.dk",
+  "address": {
+    "@type": "PostalAddress",
+    "streetAddress": "",
+    "addressLocality": "Næstved",
+    "addressCountry": "DK"
+  },
+  "areaServed": [
+    "Næstved",
+    "Vordingborg",
+    "Ringsted",
+    "Faxe",
+    "Præstø"
+  ]
+}
+</script>
+</head>
+<body>
+<div class="demo-bar">Eksempel på jeres nye hjemmeside – lavet af <a href="https://sidesmart.dk" target="_blank" rel="noopener">Sidesmart</a>. Tekster og billeder tilpasses jer.</div>
+<header class="top"><div class="wrap nav">
+  <a class="logo" href="#"><span class="logo-badge" aria-hidden="true">E</span><span>Eksempel Tømrer &amp; Snedker</span></a>
+  <ul>
+    <li><a href="#ydelser">Ydelser</a></li>
+    <li><a href="#arbejde">Vores arbejde</a></li>
+    <li><a href="#om">Om os</a></li>
+    <li><a href="#kontakt">Kontakt</a></li>
+    <li><a class="call" href="tel:+4512345678"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 16.9v3a2 2 0 0 1-2.2 2A19.8 19.8 0 0 1 2.1 4.2 2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1.9.4 1.8.7 2.7a2 2 0 0 1-.5 2.1L8 9.8a16 16 0 0 0 6 6l1.3-1.3a2 2 0 0 1 2.1-.4c.9.3 1.8.6 2.7.7a2 2 0 0 1 1.7 2z"/></svg> 12 34 56 78</a></li>
+  </ul>
+</div></header>
+
+<div class="hero"><div class="wrap">
+  <div>
+    <p class="kicker">Tømrer og snedker i Næstved</p>
+    <h1>Solidt tømrerarbejde – til tiden og til aftalt pris</h1>
+    <p class="lead">Vi hjælper private og erhverv i Næstved og omegn med alt fra nye vinduer og døre til tagrenovering og tilbygninger.</p>
+    <div class="btns">
+      <a class="btn btn-acc" href="#kontakt">Få et gratis tilbud</a>
+      <a class="btn btn-line" href="tel:+4512345678">Ring 12 34 56 78</a>
+    </div>
+    <ul class="perks"><li><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12l5 5 9-10"/></svg><span>Fast pris før vi går i gang</span></li><li><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12l5 5 9-10"/></svg><span>Over 15 års erfaring</span></li><li><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12l5 5 9-10"/></svg><span>Vi rydder altid op efter os</span></li></ul>
+  </div>
+  <div class="hero-art" aria-hidden="true"><svg width="120" height="120" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M14 6l4 4M15 3l6 6-3 3-6-6zM12 9L3 18l3 3 9-9"/></svg></div>
+</div></div>
+
+<main>
+<section id="ydelser"><div class="wrap">
+  <p class="kicker">Ydelser</p>
+  <h2>Det hjælper vi med</h2>
+  <div class="grid"><article class="card"><div class="ico"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="4" y="3" width="16" height="18" rx="1"/><path d="M12 3v18M4 12h16"/></svg></div><h3>Vinduer og døre</h3><p>Udskiftning og montering af nye vinduer og døre, så huset bliver tæt og energivenligt.</p></article><article class="card"><div class="ico"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M2 12l10-8 10 8"/><path d="M5 10v10h14V10"/></svg></div><h3>Tag og tagrenovering</h3><p>Nyt tag, efterisolering og reparationer – med fokus på holdbarhed.</p></article><article class="card"><div class="ico"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 11l9-8 9 8M5 9v12h14V9"/><path d="M10 21v-6h4v6"/></svg></div><h3>Tilbygning og ombygning</h3><p>Mere plads til familien med en gennemtænkt tilbygning eller ombygning.</p></article><article class="card"><div class="ico"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 17L17 3l4 4L7 21z"/><path d="M7 13l2 2M10 10l2 2M13 7l2 2"/></svg></div><h3>Gulve</h3><p>Lægning af trægulve, slibning og reparation af eksisterende gulve.</p></article><article class="card"><div class="ico"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 19C5 9 11 4 20 4c0 9-5 15-15 15z"/><path d="M5 19l8-8"/></svg></div><h3>Terrasser</h3><p>Terrasser og udendørs træarbejde, der kan holde til det danske vejr.</p></article><article class="card"><div class="ico"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M14.7 6.3a4 4 0 0 0-5 5L3 18l3 3 6.7-6.7a4 4 0 0 0 5-5l-2.4 2.4-2.6-.7-.7-2.6z"/></svg></div><h3>Småopgaver</h3><p>Ingen opgave er for lille – ring og hør, hvad vi kan gøre for jer.</p></article></div>
+</div></section>
+
+<section id="arbejde"><div class="wrap">
+  <p class="kicker">Vores arbejde</p><h2>Udvalgte opgaver</h2>
+  <p class="sub">Her kommer billeder af jeres egne opgaver.</p>
+  <div class="gallery"><figure class="ph"><div><svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M14 6l4 4M15 3l6 6-3 3-6-6zM12 9L3 18l3 3 9-9"/></svg><span>Billede 1</span></div></figure><figure class="ph"><div><svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M14 6l4 4M15 3l6 6-3 3-6-6zM12 9L3 18l3 3 9-9"/></svg><span>Billede 2</span></div></figure><figure class="ph"><div><svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M14 6l4 4M15 3l6 6-3 3-6-6zM12 9L3 18l3 3 9-9"/></svg><span>Billede 3</span></div></figure></div>
+</div></section>
+<section id="om"><div class="wrap about">
+  <div>
+    <p class="kicker">Om os</p>
+    <h2>Et lokalt tømrerfirma med styr på detaljerne</h2>
+  </div>
+  <div>
+    <p>Vi er et lille tømrer- og snedkerfirma med base i Næstved. Når I ringer, taler I direkte med dem, der udfører arbejdet.</p><p>Vi giver altid en fast pris, før vi går i gang, og vi holder jer orienteret undervejs.</p>
+    <p style="margin-top:22px"><strong>Vi dækker:</strong></p><ul class="towns"><li>Næstved</li><li>Vordingborg</li><li>Ringsted</li><li>Faxe</li><li>Præstø</li></ul>
+  </div>
+</div></section>
+
+<section id="kontakt"><div class="wrap">
+  <p class="kicker">Kontakt</p>
+  <h2>Få et gratis tilbud</h2>
+  <p class="sub">Fortæl kort om opgaven, så vender vi tilbage samme dag med et tilbud eller et besøg.</p>
+  <div class="contact">
+    <div>
+      <div class="info">
+        <div class="row"><span>Telefon</span><a href="tel:+4512345678">12 34 56 78</a></div>
+        <div class="row"><span>Mail</span><a href="mailto:kontakt@eksempel-toemrer.dk">kontakt@eksempel-toemrer.dk</a></div>
+        
+        
+      </div>
+      <div class="info times"><div class="row"><span>Mandag–torsdag</span><strong>07–16</strong></div><div class="row"><span>Fredag</span><strong>07–14</strong></div><div class="row"><span>Weekend</span><strong>Efter aftale</strong></div></div>
+    </div>
+    <form action="https://formsubmit.co/kontakt@eksempel-toemrer.dk" method="POST">
+      <input type="hidden" name="_subject" value="Ny henvendelse fra hjemmesiden">
+      <input type="hidden" name="_captcha" value="false">
+      <input type="text" name="_honey" style="display:none" tabindex="-1" autocomplete="off">
+      <label>Navn<input name="navn" autocomplete="name" required disabled></label>
+      <label>Telefon<input name="telefon" type="tel" autocomplete="tel" disabled></label>
+      <label>Mail<input name="email" type="email" autocomplete="email" required disabled></label>
+      <label>Hvad kan vi hjælpe med?<textarea name="besked" required disabled></textarea></label>
+      <button class="btn btn-acc" type="submit" disabled>Send forespørgsel</button>
+      <p class="note">Dette er et eksempel – formularen sender ikke rigtige beskeder endnu.</p>
+    </form>
+  </div>
+</div></section>
+</main>
+
+<footer><div class="wrap">
+  <span>© Eksempel Tømrer &amp; Snedker</span>
+  <span>Hjemmeside af <a href="https://sidesmart.dk" target="_blank" rel="noopener">Sidesmart</a></span>
+</div></footer>
+
+<a class="fab" href="tel:+4512345678"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 16.9v3a2 2 0 0 1-2.2 2A19.8 19.8 0 0 1 2.1 4.2 2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1.9.4 1.8.7 2.7a2 2 0 0 1-.5 2.1L8 9.8a16 16 0 0 0 6 6l1.3-1.3a2 2 0 0 1 2.1-.4c.9.3 1.8.6 2.7.7a2 2 0 0 1 1.7 2z"/></svg> Ring nu</a>
+</body>
+</html>

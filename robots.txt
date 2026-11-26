@@ -1,4 +1,6 @@
 User-agent: *
 Allow: /
+# Eksempler til kunder skal ikke på Google
+Disallow: /eksempler/
 
 Sitemap: https://sidesmart.dk/sitemap.xml
