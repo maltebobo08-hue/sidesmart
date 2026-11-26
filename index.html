@@ -127,60 +127,60 @@ nav .cta-small:hover{color:var(--fjord);background:#fff}
 .hero-row .lead{max-width:none}
 @media (max-width:960px){.hero-row{grid-template-columns:1fr;gap:44px}.demo{max-width:440px;width:100%}}
 
-/* Animation af en hjemmeside, der bygges */
-.demo{position:relative;background:#0B1A27;border:1px solid rgba(255,255,255,.12);border-radius:14px;overflow:hidden;box-shadow:0 30px 60px -24px rgba(0,0,0,.6)}
+/* Animation af en hjemmeside, der bygges (skitse -> design -> klar), løkke på 6 sek.
+   Grundtilstanden er skitsen, så animationen aldrig starter tom. */
+.demo{position:relative;background:#0B1A27;border:1px solid rgba(255,255,255,.12);border-radius:14px;overflow:hidden;box-shadow:0 30px 60px -24px rgba(0,0,0,.6);--t:6s}
 .demo-bar{display:flex;align-items:center;gap:6px;padding:10px 12px;background:rgba(255,255,255,.04);border-bottom:1px solid rgba(255,255,255,.08)}
 .demo-bar i{width:8px;height:8px;border-radius:50%;background:rgba(255,255,255,.18)}
 .demo-bar span{margin-left:10px;font-size:12px;color:var(--on-dark-muted);background:rgba(255,255,255,.06);padding:2px 10px;border-radius:999px}
-.demo-page{padding:16px;display:grid;gap:14px;aspect-ratio:4/3}
-.demo-page b{display:block;border-radius:6px;background:rgba(255,255,255,.07);outline:1px dashed rgba(255,255,255,.18);outline-offset:-1px;animation:9s ease-in-out infinite}
+.demo-page{padding:16px;display:grid;gap:14px;aspect-ratio:4/3;align-content:start}
+.demo-page b{display:flex;align-items:center;border-radius:6px;background:rgba(255,255,255,.08);outline:1px dashed rgba(255,255,255,.22);outline-offset:-1px;animation:d-sk var(--t) ease-in-out infinite;font-weight:400;overflow:hidden}
+.demo-page b i{font-style:normal;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;opacity:0;animation:d-txt var(--t) ease-in-out infinite;line-height:1}
 .d-nav{display:flex;gap:8px;align-items:center}
-.d-nav b{height:8px;width:34px}
-.d-nav .d-logo{width:60px;height:14px;margin-right:auto}
-.d-hero{border-radius:10px;padding:18px;display:grid;gap:9px;align-content:center;background:rgba(255,255,255,.03);animation:d-hero 9s ease-in-out infinite}
-.d-title{height:16px;width:78%}
-.d-title.short{width:52%}
-.d-text{height:8px;width:66%;margin-top:4px}
-.d-btn{height:22px;width:112px;border-radius:999px!important;margin-top:6px}
+.d-nav b{height:12px;width:44px;justify-content:center}
+.d-nav b i{font-size:9.5px;color:var(--on-dark-muted)}
+.d-nav .d-logo{width:88px;height:16px;margin-right:auto;justify-content:flex-start}
+.d-logo i{font-size:12px;font-weight:600;color:#6FD0C8}
+.d-hero{border-radius:10px;padding:18px;display:grid;gap:9px;align-content:center;background:rgba(255,255,255,.03);animation:d-hero var(--t) ease-in-out infinite;min-height:46%}
+.d-title{height:20px;width:88%}
+.d-title.short{width:62%}
+.d-title i{font-size:clamp(14px,1.5vw,17px);font-weight:600;color:#F2F5F4;letter-spacing:-.01em}
+.d-text{height:11px;width:78%;margin-top:2px}
+.d-text i{font-size:10.5px;color:#A9B8C2}
+.d-btn{height:24px;width:100px;border-radius:999px!important;margin-top:6px;justify-content:center;animation-name:d-btn!important}
+.d-btn i{font-size:10.5px;font-weight:600;color:#06201E}
 .d-cards{display:grid;grid-template-columns:repeat(3,1fr);gap:10px}
-.d-cards b{height:58px;border-radius:8px}
-.d-nav b,.d-hero b,.d-cards b{animation-name:d-pop,d-paint}
-.d-logo{animation-name:d-pop,d-logo!important}
-.d-btn{animation-name:d-pop,d-accent!important}
-.d-title{animation-name:d-pop,d-white!important}
-.d-cards b{animation-name:d-pop,d-card!important}
-.d-nav b:nth-child(2),.d-title{animation-delay:.15s,0s}
-.d-nav b:nth-child(3),.d-title.short{animation-delay:.3s,0s}
-.d-nav b:nth-child(4),.d-text{animation-delay:.45s,0s}
-.d-btn{animation-delay:.6s,0s}
-.d-cards b:nth-child(1){animation-delay:.75s,0s}
-.d-cards b:nth-child(2){animation-delay:.9s,0s}
-.d-cards b:nth-child(3){animation-delay:1.05s,0s}
+.d-cards b{height:58px;border-radius:8px;align-items:flex-end;padding:0 10px 9px;animation-name:d-card!important}
+.d-cards b i{font-size:10.5px;font-weight:600;color:#14212E}
+/* små forskydninger, så teksten "skrives" ind efter hinanden */
+.d-nav b:nth-child(2) i{animation-delay:.05s}.d-nav b:nth-child(3) i{animation-delay:.1s}.d-nav b:nth-child(4) i{animation-delay:.15s}
+.d-title i{animation-delay:.1s}.d-title.short i{animation-delay:.2s}.d-text i{animation-delay:.3s}.d-btn i{animation-delay:.4s}
+.d-cards b:nth-child(1) i{animation-delay:.45s}.d-cards b:nth-child(2) i{animation-delay:.5s}.d-cards b:nth-child(3) i{animation-delay:.55s}
 
-@keyframes d-pop{0%{opacity:0;transform:translateY(6px)}6%,92%{opacity:1;transform:none}100%{opacity:0}}
-@keyframes d-paint{0%,32%{background:rgba(255,255,255,.07);outline-color:rgba(255,255,255,.18)}42%,92%{background:rgba(255,255,255,.28);outline-color:transparent}100%{background:rgba(255,255,255,.07)}}
-@keyframes d-white{0%,32%{background:rgba(255,255,255,.07);outline-color:rgba(255,255,255,.18)}42%,92%{background:#F2F5F4;outline-color:transparent}100%{background:rgba(255,255,255,.07)}}
-@keyframes d-logo{0%,32%{background:rgba(255,255,255,.07);outline-color:rgba(255,255,255,.18)}42%,92%{background:#3FA7A0;outline-color:transparent}100%{background:rgba(255,255,255,.07)}}
-@keyframes d-accent{0%,36%{background:rgba(255,255,255,.07);outline-color:rgba(255,255,255,.18)}46%,92%{background:#3FA7A0;outline-color:transparent}100%{background:rgba(255,255,255,.07)}}
-@keyframes d-card{0%,38%{background:rgba(255,255,255,.07);outline-color:rgba(255,255,255,.18);box-shadow:none}48%,92%{background:#F2F5F4;outline-color:transparent;box-shadow:inset 0 4px 0 #3FA7A0}100%{background:rgba(255,255,255,.07)}}
-@keyframes d-hero{0%,32%{background:rgba(255,255,255,.03)}42%,92%{background:linear-gradient(135deg,#183449,#1F5E62)}100%{background:rgba(255,255,255,.03)}}
+@keyframes d-sk{0%,30%{background:rgba(255,255,255,.08);outline-color:rgba(255,255,255,.22)}38%,90%{background:transparent;outline-color:transparent}97%,100%{background:rgba(255,255,255,.08);outline-color:rgba(255,255,255,.22)}}
+@keyframes d-btn{0%,30%{background:rgba(255,255,255,.08);outline-color:rgba(255,255,255,.22)}38%,90%{background:#3FA7A0;outline-color:transparent}97%,100%{background:rgba(255,255,255,.08);outline-color:rgba(255,255,255,.22)}}
+@keyframes d-card{0%,30%{background:rgba(255,255,255,.08);outline-color:rgba(255,255,255,.22);box-shadow:none}38%,90%{background:#F2F5F4;outline-color:transparent;box-shadow:inset 0 4px 0 #3FA7A0}97%,100%{background:rgba(255,255,255,.08);outline-color:rgba(255,255,255,.22);box-shadow:none}}
+@keyframes d-txt{0%,32%{opacity:0;transform:translateY(3px)}40%,90%{opacity:1;transform:none}96%,100%{opacity:0}}
+@keyframes d-hero{0%,30%{background:rgba(255,255,255,.03)}38%,90%{background:linear-gradient(135deg,#183449,#1F5E62)}97%,100%{background:rgba(255,255,255,.03)}}
 
 .demo-steps{position:absolute;right:10px;top:6px;height:24px;min-width:150px}
-.demo-steps span{position:absolute;right:0;top:0;white-space:nowrap;font-size:12px;font-weight:600;padding:3px 11px;border-radius:999px;background:rgba(11,26,39,.85);color:var(--on-dark);border:1px solid rgba(255,255,255,.14);opacity:0;animation:9s ease-in-out infinite}
+.demo-steps span{position:absolute;right:0;top:0;white-space:nowrap;font-size:12px;font-weight:600;padding:3px 11px;border-radius:999px;background:rgba(11,26,39,.85);color:var(--on-dark);border:1px solid rgba(255,255,255,.14);opacity:0;animation:var(--t) ease-in-out infinite}
 .demo-steps .s1{animation-name:d-s1}
 .demo-steps .s2{animation-name:d-s2}
 .demo-steps .s3{animation-name:d-s3;background:#3FA7A0;color:#06201E;border-color:transparent}
-@keyframes d-s1{0%,2%{opacity:0}6%,28%{opacity:1}32%,100%{opacity:0}}
-@keyframes d-s2{0%,32%{opacity:0}36%,58%{opacity:1}62%,100%{opacity:0}}
-@keyframes d-s3{0%,62%{opacity:0;transform:scale(.9)}66%,90%{opacity:1;transform:none}95%,100%{opacity:0}}
+/* "1. Skitse" er synlig fra første øjeblik */
+@keyframes d-s1{0%,30%{opacity:1}34%,96%{opacity:0}100%{opacity:1}}
+@keyframes d-s2{0%,33%{opacity:0}37%,58%{opacity:1}62%,100%{opacity:0}}
+@keyframes d-s3{0%,61%{opacity:0;transform:scale(.9)}65%,90%{opacity:1;transform:none}94%,100%{opacity:0}}
 
 @media (prefers-reduced-motion:reduce){
   .demo *{animation:none!important}
   .d-hero{background:linear-gradient(135deg,#183449,#1F5E62)}
-  .demo-page b{outline-color:transparent;background:rgba(255,255,255,.28)}
-  .d-title{background:#F2F5F4}.d-logo,.d-btn{background:#3FA7A0}
+  .demo-page b{outline-color:transparent;background:transparent}
+  .demo-page b i{opacity:1}
+  .d-btn{background:#3FA7A0}
   .d-cards b{background:#F2F5F4;box-shadow:inset 0 4px 0 #3FA7A0}
-  .demo-steps .s3{opacity:1}
+  .demo-steps .s1{opacity:0}.demo-steps .s3{opacity:1}
 }
 
 .call-line{margin-top:22px;font-size:16px;color:var(--on-dark-muted)}
@@ -375,13 +375,13 @@ footer .wrap > .fb-foot{margin-left:auto}
         <div class="demo" role="img" aria-label="Animation: en hjemmeside bliver bygget fra skitse til færdigt design">
           <div class="demo-bar"><i></i><i></i><i></i><span>jeres-firma.dk</span></div>
           <div class="demo-page">
-            <div class="d-nav"><b class="d-logo"></b><b></b><b></b><b></b></div>
+            <div class="d-nav"><b class="d-logo"><i>Jeres Firma</i></b><b><i>Ydelser</i></b><b><i>Om os</i></b><b><i>Kontakt</i></b></div>
             <div class="d-hero">
-              <b class="d-title"></b><b class="d-title short"></b>
-              <b class="d-text"></b>
-              <b class="d-btn"></b>
+              <b class="d-title"><i>Velkommen til jeres</i></b><b class="d-title short"><i>nye hjemmeside</i></b>
+              <b class="d-text"><i>Hurtig, flot og nem at finde på Google.</i></b>
+              <b class="d-btn"><i>Kontakt os</i></b>
             </div>
-            <div class="d-cards"><b></b><b></b><b></b></div>
+            <div class="d-cards"><b><i>Ydelser</i></b><b><i>Priser</i></b><b><i>Kontakt</i></b></div>
           </div>
           <div class="demo-steps" aria-hidden="true">
             <span class="s1">1. Skitse</span>
