@@ -54,6 +54,7 @@
 }
 </script>
 <meta name="theme-color" content="#0F2233">
+<script>/* Mørkt tema som udgangspunkt; brugerens eget valg (knappen i bunden) huskes */(function(){var t="dark";try{t=localStorage.getItem("tema")||"dark"}catch(e){}document.documentElement.setAttribute("data-theme",t)})();</script>
 <link rel="preload" href="inter-600.woff2" as="font" type="font/woff2" crossorigin>
 <style>
 @font-face{font-family:"Inter";font-weight:400;font-display:swap;src:url(inter-400.woff2) format("woff2")}
@@ -550,7 +551,6 @@ footer .logo{color:var(--on-dark);font-size:16px}
   var root=document.documentElement,btn=document.getElementById("tema");
   function isDark(){var t=root.getAttribute("data-theme");return t?t==="dark":matchMedia("(prefers-color-scheme: dark)").matches}
   function label(){btn.textContent=isDark()?"Lyst tema":"Mørkt tema"}
-  try{var s=localStorage.getItem("tema");if(s)root.setAttribute("data-theme",s)}catch(e){}
   label();
   btn.addEventListener("click",function(){var n=isDark()?"light":"dark";root.setAttribute("data-theme",n);try{localStorage.setItem("tema",n)}catch(e){}label()});
 })();
