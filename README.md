@@ -9,7 +9,8 @@ Hjemmeside for webstudiet Sidesmart (sidesmart.dk). Ren HTML og CSS uden byggetr
 - `inter-*.woff2` – selvhostet Inter (SIL Open Font License, se `Inter-LICENSE.txt`)
 - `favicon.svg` – ikon
 - `404.html` – vises, når en adresse ikke findes
-- `_headers` – cache-regler til Cloudflare Pages
+- `CNAME` – fortæller GitHub Pages, at siden ligger på sidesmart.dk
+- `.nojekyll` – GitHub Pages udgiver filerne, som de er
 - `robots.txt`, `sitemap.xml` – til Google
 
 ## Ret før siden går live
@@ -32,8 +33,10 @@ python3 -m http.server
 
 ## Udgiv
 
-Siden ligger på Cloudflare Pages, koblet til dette GitHub-repo (samme opsætning som øes.dk). Når der pushes til `main`, bygger Cloudflare siden og lægger den online på sidesmart.dk inden for et minut. Der er intet byggetrin: Cloudflare udgiver mappen, som den er.
+Siden ligger på GitHub Pages fra dette repo (gren `main`, mappe `/`). Når der pushes til `main`, er ændringen online på sidesmart.dk efter et minut eller to. Der er intet byggetrin.
 
-- Domænet sidesmart.dk er købt hos Simply.com, men bruger Cloudflares navneservere, så DNS styres i Cloudflare.
-- `404.html` bruges automatisk af Cloudflare Pages, når en adresse ikke findes.
-- Https klarer Cloudflare automatisk.
+- Domænet sidesmart.dk er købt hos Simply.com, og DNS styres der:
+  - `sidesmart.dk` A-records: 185.199.108.153, 185.199.109.153, 185.199.110.153, 185.199.111.153
+  - `www.sidesmart.dk` CNAME: maltebobo08-hue.github.io
+- Https slås til under repoets Settings → Pages → Enforce HTTPS.
+- `404.html` bruges automatisk, når en adresse ikke findes.
