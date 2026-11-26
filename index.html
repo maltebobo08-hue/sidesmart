@@ -34,6 +34,7 @@
       "telephone": "+45 50 54 21 09",
       "address": { "@type": "PostalAddress", "addressLocality": "Lundby", "postalCode": "4750", "addressCountry": "DK" },
       "areaServed": [{ "@type": "AdministrativeArea", "name": "Sydsjælland" }, { "@type": "City", "name": "Vordingborg" }, { "@type": "City", "name": "Næstved" }, { "@type": "Country", "name": "Danmark" }],
+      "sameAs": ["https://www.facebook.com/profile.php?id=61597050597617"],
       "knowsAbout": ["Webdesign", "Hjemmesideudvikling", "Redesign af hjemmesider", "Søgemaskineoptimering"]
     },
     {
@@ -318,6 +319,11 @@ footer .logo{color:var(--on-dark);font-size:16px}
 .foot-link:hover{color:var(--on-dark)}
 .more-links{margin-top:28px;color:var(--muted);font-size:16px}
 .more-links a{color:var(--pixel-ink);font-weight:600;text-underline-offset:3px}
+.fb-btn{display:inline-flex;align-items:center;gap:10px;margin-top:20px;padding:12px 20px;border-radius:999px;border:1px solid rgba(255,255,255,.25);color:var(--on-dark);font-weight:600;font-size:15px;text-decoration:none}
+.fb-btn:hover{border-color:#1877F2;color:#fff;background:#1877F2}
+.fb-foot{display:inline-grid;place-items:center;width:36px;height:36px;border-radius:50%;border:1px solid rgba(255,255,255,.2);color:var(--on-dark-muted)}
+.fb-foot:hover{color:#fff;background:#1877F2;border-color:#1877F2}
+footer .wrap > .fb-foot{margin-left:auto}
 .theme-btn{background:none;border:1px solid rgba(255,255,255,.2);color:var(--on-dark-muted);border-radius:999px;padding:6px 12px;font:inherit;cursor:pointer}
 .theme-btn:hover{color:var(--on-dark)}
 
@@ -522,7 +528,9 @@ footer .logo{color:var(--on-dark);font-size:16px}
         <div class="contact-row"><span>Telefon <small>Ring altid gerne</small></span><a href="tel:+4550542109">+45 50 54 21 09</a></div>
         <div class="contact-row"><span>Mail</span><a href="mailto:william@sidesmart.dk">william@sidesmart.dk</a></div>
         <div class="contact-row"><span>Område</span><strong>Sydsjælland og hele Danmark</strong></div>
+        <div class="contact-row"><span>Facebook</span><a href="https://www.facebook.com/profile.php?id=61597050597617" target="_blank" rel="noopener">Sidesmart på Facebook</a></div>
       </div>
+      <a class="fb-btn" href="https://www.facebook.com/profile.php?id=61597050597617" target="_blank" rel="noopener"><svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M24 12.07C24 5.4 18.63 0 12 0S0 5.4 0 12.07C0 18.1 4.39 23.1 10.13 24v-8.44H7.08v-3.49h3.05V9.41c0-3.02 1.79-4.69 4.53-4.69 1.31 0 2.69.24 2.69.24v2.97h-1.51c-1.49 0-1.96.93-1.96 1.89v2.25h3.33l-.53 3.49h-2.8V24C19.61 23.1 24 18.1 24 12.07z"/></svg>Følg os på Facebook</a>
     </div>
     <form class="contact-box contact-form" id="kontaktformular" action="https://formsubmit.co/william@sidesmart.dk" method="POST">
       <input type="hidden" name="_subject" value="Ny henvendelse fra sidesmart.dk">
@@ -548,6 +556,7 @@ footer .logo{color:var(--on-dark);font-size:16px}
   <div class="wrap">
     <span class="logo"><svg class="logo-mark" viewBox="0 0 24 24" aria-hidden="true"><rect width="24" height="24" rx="6" fill="currentColor"/><path d="M6.5 12.5l3.5 3.5 7.5-8" fill="none" stroke="var(--pixel)" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/></svg><span>Side<b>smart</b></span></span>
     <span>© <span id="aar">2026</span> Sidesmart · <a class="foot-link" href="/webdesigner-sydsjaelland.html">Sydsjælland</a> · <a class="foot-link" href="/hjemmeside-til-haandvaerkere.html">Håndværkere</a> · <a class="foot-link" href="/privatliv.html">Privatliv og cookies</a></span>
+    <a class="fb-foot" href="https://www.facebook.com/profile.php?id=61597050597617" target="_blank" rel="noopener" aria-label="Sidesmart på Facebook"><svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M24 12.07C24 5.4 18.63 0 12 0S0 5.4 0 12.07C0 18.1 4.39 23.1 10.13 24v-8.44H7.08v-3.49h3.05V9.41c0-3.02 1.79-4.69 4.53-4.69 1.31 0 2.69.24 2.69.24v2.97h-1.51c-1.49 0-1.96.93-1.96 1.89v2.25h3.33l-.53 3.49h-2.8V24C19.61 23.1 24 18.1 24 12.07z"/></svg></a>
     <button class="theme-btn" id="tema" type="button">Mørkt tema</button>
   </div>
 </footer>
