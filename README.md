@@ -16,12 +16,6 @@ Hjemmeside for webstudiet Sidesmart (sidesmart.dk). Ren HTML og CSS uden byggetr
 - `webdesigner-sydsjaelland.html`, `hjemmeside-til-haandvaerkere.html` – lokale/brancheundersider til Google (stil i `side.css`)
 - `samtykke.js` – cookie-banner. Vises kun, når der er sat et Meta Pixel- eller Google-id øverst i filen; sporing indlæses først efter ja
 
-## Ret før siden går live
-
-Søg efter `RET:` i `index.html`:
-
-- Tekst om jer selv under "Om os"
-
 ## Ny reference
 
 Kopiér `<article class="case">…</article>` i `index.html`, læg skærmbilleder ved siden af `index.html`, og ret teksten.
