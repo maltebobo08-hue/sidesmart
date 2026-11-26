@@ -115,6 +115,67 @@ nav .cta-small:hover{color:var(--fjord);background:#fff}
 .hero h1 em{font-style:normal;color:var(--pixel)}
 .hero .lead strong{color:var(--on-dark);font-weight:600}
 .hero .lead{font-size:clamp(18px,2vw,21px);color:var(--on-dark-muted);margin-top:22px;max-width:860px}
+/* Forside: tekst til venstre, animation til højre */
+.hero-row{display:grid;grid-template-columns:minmax(0,1fr) 440px;gap:56px;align-items:center;margin-top:8px}
+.hero-row .lead{max-width:none}
+@media (max-width:960px){.hero-row{grid-template-columns:1fr;gap:44px}.demo{max-width:440px;width:100%}}
+
+/* Animation af en hjemmeside, der bygges */
+.demo{position:relative;background:#0B1A27;border:1px solid rgba(255,255,255,.12);border-radius:14px;overflow:hidden;box-shadow:0 30px 60px -24px rgba(0,0,0,.6)}
+.demo-bar{display:flex;align-items:center;gap:6px;padding:10px 12px;background:rgba(255,255,255,.04);border-bottom:1px solid rgba(255,255,255,.08)}
+.demo-bar i{width:8px;height:8px;border-radius:50%;background:rgba(255,255,255,.18)}
+.demo-bar span{margin-left:10px;font-size:12px;color:var(--on-dark-muted);background:rgba(255,255,255,.06);padding:2px 10px;border-radius:999px}
+.demo-page{padding:16px;display:grid;gap:14px;aspect-ratio:4/3}
+.demo-page b{display:block;border-radius:6px;background:rgba(255,255,255,.07);outline:1px dashed rgba(255,255,255,.18);outline-offset:-1px;animation:9s ease-in-out infinite}
+.d-nav{display:flex;gap:8px;align-items:center}
+.d-nav b{height:8px;width:34px}
+.d-nav .d-logo{width:60px;height:14px;margin-right:auto}
+.d-hero{border-radius:10px;padding:18px;display:grid;gap:9px;align-content:center;background:rgba(255,255,255,.03);animation:d-hero 9s ease-in-out infinite}
+.d-title{height:16px;width:78%}
+.d-title.short{width:52%}
+.d-text{height:8px;width:66%;margin-top:4px}
+.d-btn{height:22px;width:112px;border-radius:999px!important;margin-top:6px}
+.d-cards{display:grid;grid-template-columns:repeat(3,1fr);gap:10px}
+.d-cards b{height:58px;border-radius:8px}
+.d-nav b,.d-hero b,.d-cards b{animation-name:d-pop,d-paint}
+.d-logo{animation-name:d-pop,d-logo!important}
+.d-btn{animation-name:d-pop,d-accent!important}
+.d-title{animation-name:d-pop,d-white!important}
+.d-cards b{animation-name:d-pop,d-card!important}
+.d-nav b:nth-child(2),.d-title{animation-delay:.15s,0s}
+.d-nav b:nth-child(3),.d-title.short{animation-delay:.3s,0s}
+.d-nav b:nth-child(4),.d-text{animation-delay:.45s,0s}
+.d-btn{animation-delay:.6s,0s}
+.d-cards b:nth-child(1){animation-delay:.75s,0s}
+.d-cards b:nth-child(2){animation-delay:.9s,0s}
+.d-cards b:nth-child(3){animation-delay:1.05s,0s}
+
+@keyframes d-pop{0%{opacity:0;transform:translateY(6px)}6%,92%{opacity:1;transform:none}100%{opacity:0}}
+@keyframes d-paint{0%,32%{background:rgba(255,255,255,.07);outline-color:rgba(255,255,255,.18)}42%,92%{background:rgba(255,255,255,.28);outline-color:transparent}100%{background:rgba(255,255,255,.07)}}
+@keyframes d-white{0%,32%{background:rgba(255,255,255,.07);outline-color:rgba(255,255,255,.18)}42%,92%{background:#F2F5F4;outline-color:transparent}100%{background:rgba(255,255,255,.07)}}
+@keyframes d-logo{0%,32%{background:rgba(255,255,255,.07);outline-color:rgba(255,255,255,.18)}42%,92%{background:#3FA7A0;outline-color:transparent}100%{background:rgba(255,255,255,.07)}}
+@keyframes d-accent{0%,36%{background:rgba(255,255,255,.07);outline-color:rgba(255,255,255,.18)}46%,92%{background:#3FA7A0;outline-color:transparent}100%{background:rgba(255,255,255,.07)}}
+@keyframes d-card{0%,38%{background:rgba(255,255,255,.07);outline-color:rgba(255,255,255,.18);box-shadow:none}48%,92%{background:#F2F5F4;outline-color:transparent;box-shadow:inset 0 4px 0 #3FA7A0}100%{background:rgba(255,255,255,.07)}}
+@keyframes d-hero{0%,32%{background:rgba(255,255,255,.03)}42%,92%{background:linear-gradient(135deg,#183449,#1F5E62)}100%{background:rgba(255,255,255,.03)}}
+
+.demo-steps{position:absolute;right:10px;top:6px;height:24px;min-width:150px}
+.demo-steps span{position:absolute;right:0;top:0;white-space:nowrap;font-size:12px;font-weight:600;padding:3px 11px;border-radius:999px;background:rgba(11,26,39,.85);color:var(--on-dark);border:1px solid rgba(255,255,255,.14);opacity:0;animation:9s ease-in-out infinite}
+.demo-steps .s1{animation-name:d-s1}
+.demo-steps .s2{animation-name:d-s2}
+.demo-steps .s3{animation-name:d-s3;background:#3FA7A0;color:#06201E;border-color:transparent}
+@keyframes d-s1{0%,2%{opacity:0}6%,28%{opacity:1}32%,100%{opacity:0}}
+@keyframes d-s2{0%,32%{opacity:0}36%,58%{opacity:1}62%,100%{opacity:0}}
+@keyframes d-s3{0%,62%{opacity:0;transform:scale(.9)}66%,90%{opacity:1;transform:none}95%,100%{opacity:0}}
+
+@media (prefers-reduced-motion:reduce){
+  .demo *{animation:none!important}
+  .d-hero{background:linear-gradient(135deg,#183449,#1F5E62)}
+  .demo-page b{outline-color:transparent;background:rgba(255,255,255,.28)}
+  .d-title{background:#F2F5F4}.d-logo,.d-btn{background:#3FA7A0}
+  .d-cards b{background:#F2F5F4;box-shadow:inset 0 4px 0 #3FA7A0}
+  .demo-steps .s3{opacity:1}
+}
+
 .btns{display:flex;flex-wrap:wrap;gap:12px;margin-top:36px}
 .btn{display:inline-flex;align-items:center;gap:8px;padding:14px 22px;border-radius:999px;font-weight:600;font-size:16px;text-decoration:none;transition:transform .15s,background .15s}
 .btn:hover{transform:translateY(-1px)}
@@ -256,10 +317,33 @@ footer .logo{color:var(--on-dark);font-size:16px}
     <div class="hero-inner">
       <p class="eyebrow">Webdesign og hjemmesideudvikling</p>
       <h1>Få et <em>gratis</em> hjemmeside-eksempel.</h1>
-      <p class="lead"><strong>Det er helt gratis</strong> at få et eksempel på, hvordan jeres nye hjemmeside kunne se ud. Kan I lide det, bygger vi den færdig. Kan I ikke, koster det jer ingenting.</p>
-      <div class="btns">
-        <a class="btn btn-primary" href="#kontakt">Bestil jeres gratis eksempel</a>
-        <a class="btn btn-ghost" href="#referencer">Se vores arbejde</a>
+      <div class="hero-row">
+        <div>
+          <p class="lead"><strong>Det er helt gratis</strong> at få et eksempel på, hvordan jeres nye hjemmeside kunne se ud. Kan I lide det, bygger vi den færdig. Kan I ikke, koster det jer ingenting.</p>
+          <div class="btns">
+            <a class="btn btn-primary" href="#kontakt">Bestil jeres gratis eksempel</a>
+            <a class="btn btn-ghost" href="#referencer">Se vores arbejde</a>
+          </div>
+        </div>
+
+        <!-- Animation: en hjemmeside bygges fra skitse til færdig side (ren CSS, løkke på 9 sek.) -->
+        <div class="demo" role="img" aria-label="Animation: en hjemmeside bliver bygget fra skitse til færdigt design">
+          <div class="demo-bar"><i></i><i></i><i></i><span>jeres-firma.dk</span></div>
+          <div class="demo-page">
+            <div class="d-nav"><b class="d-logo"></b><b></b><b></b><b></b></div>
+            <div class="d-hero">
+              <b class="d-title"></b><b class="d-title short"></b>
+              <b class="d-text"></b>
+              <b class="d-btn"></b>
+            </div>
+            <div class="d-cards"><b></b><b></b><b></b></div>
+          </div>
+          <div class="demo-steps" aria-hidden="true">
+            <span class="s1">1. Skitse</span>
+            <span class="s2">2. Design</span>
+            <span class="s3">3. Eksempel klar ✓</span>
+          </div>
+        </div>
       </div>
     </div>
   </div>
