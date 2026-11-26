@@ -1,0 +1,101 @@
+/* Sidesmart – fælles stil til undersider (samme udtryk som forsiden) */
+@font-face{font-family:"Inter";font-weight:400;font-display:swap;src:url(/inter-400.woff2) format("woff2")}
+@font-face{font-family:"Inter";font-weight:500;font-display:swap;src:url(/inter-500.woff2) format("woff2")}
+@font-face{font-family:"Inter";font-weight:600;font-display:swap;src:url(/inter-600.woff2) format("woff2")}
+
+:root{
+  --fjord:#0F2233;--fjord-2:#183449;--ink:#14212E;--muted:#5A6878;
+  --bg:#FAFAF7;--card:#FFFFFF;--soft:#EEF1EF;--line:#DDE3E3;
+  --pixel:#3FA7A0;--pixel-ink:#0B6B66;--on-dark:#F2F5F4;--on-dark-muted:#A9B8C2;
+  --r:14px;color-scheme:light
+}
+:root[data-theme="dark"]{
+  --ink:#E8EEF0;--muted:#9AAAB6;--bg:#0B1620;--card:#111F2B;--soft:#0F1C27;
+  --line:#203241;--pixel-ink:#6FD0C8;color-scheme:dark
+}
+*,*::before,*::after{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%}
+body{margin:0;background:var(--bg);color:var(--ink);font:400 17px/1.65 "Inter",system-ui,-apple-system,"Segoe UI",sans-serif;-webkit-font-smoothing:antialiased}
+img{max-width:100%;height:auto;display:block}
+a{color:inherit}
+h1,h2,h3{font-weight:600;letter-spacing:-.02em;line-height:1.15;margin:0}
+p{margin:0}
+:focus-visible{outline:2px solid var(--pixel);outline-offset:3px;border-radius:4px}
+.wrap{max-width:1040px;margin:0 auto;padding:0 24px}
+@media (max-width:600px){.wrap{padding:0 16px}}
+
+/* Top */
+.top{background:var(--fjord);color:var(--on-dark)}
+.top header{display:flex;align-items:center;justify-content:space-between;padding:22px 0}
+.logo{display:inline-flex;align-items:center;gap:10px;text-decoration:none;font-weight:600;font-size:19px}
+.logo b{font-weight:400;opacity:.7}
+.logo svg{width:24px;height:24px;flex:none}
+.top nav a{color:var(--on-dark-muted);text-decoration:none;font-weight:500;font-size:15px;margin-left:24px}
+.top nav a:hover{color:var(--on-dark)}
+.top nav .cta-small{color:var(--fjord);background:var(--on-dark);padding:9px 16px;border-radius:999px}
+@media (max-width:640px){.top nav a:not(.cta-small){display:none}}
+.crumbs{font-size:14px;color:var(--on-dark-muted);padding-top:28px}
+.crumbs a{color:var(--on-dark-muted)}
+.intro{padding:20px 0 84px;max-width:820px}
+.intro h1{font-size:clamp(34px,5vw,56px);margin-top:12px}
+.intro h1 em{font-style:normal;color:var(--pixel)}
+.intro .lead{font-size:clamp(18px,2vw,20px);color:var(--on-dark-muted);margin-top:20px}
+.btns{display:flex;flex-wrap:wrap;gap:12px;margin-top:30px}
+.btn{display:inline-flex;align-items:center;gap:8px;padding:14px 22px;border-radius:999px;font-weight:600;font-size:16px;text-decoration:none}
+.btn-primary{background:var(--pixel);color:#06201E}
+.btn-primary:hover{background:#52B8B1}
+.btn-ghost{color:var(--on-dark);border:1px solid rgba(255,255,255,.25)}
+.btn-ghost:hover{border-color:rgba(255,255,255,.6)}
+
+/* Indhold */
+section{padding:72px 0}
+section+section{border-top:1px solid var(--line)}
+.kicker{font-size:13px;font-weight:600;letter-spacing:.1em;text-transform:uppercase;color:var(--pixel-ink);margin-bottom:12px}
+h2{font-size:clamp(26px,3.4vw,36px);max-width:720px}
+.text{max-width:720px}
+.text p,.text li{color:var(--muted);font-size:18px}
+.text p{margin-top:16px}
+.text ul{margin:16px 0 0;padding-left:20px}
+.text li{margin-top:6px}
+.grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;margin-top:36px}
+@media (max-width:860px){.grid{grid-template-columns:1fr}}
+.card{background:var(--card);border:1px solid var(--line);border-radius:var(--r);padding:26px}
+.card h3{font-size:19px;margin-bottom:8px}
+.card p{color:var(--muted);font-size:16px}
+.towns{display:flex;flex-wrap:wrap;gap:10px;margin-top:28px;padding:0;list-style:none}
+.towns li{background:var(--card);border:1px solid var(--line);border-radius:999px;padding:8px 16px;font-weight:500;font-size:15px}
+.prices{max-width:520px;margin-top:28px;border:1px solid var(--line);border-radius:var(--r);background:var(--card);padding:6px 22px}
+.prices div{display:flex;justify-content:space-between;gap:16px;padding:14px 0;border-bottom:1px solid var(--line);color:var(--muted)}
+.prices div:last-child{border-bottom:0}
+.prices strong{color:var(--ink);white-space:nowrap}
+.ref{display:grid;grid-template-columns:1.2fr 1fr;gap:40px;align-items:center;margin-top:32px}
+@media (max-width:860px){.ref{grid-template-columns:1fr;gap:24px}}
+.ref img{border-radius:12px;border:1px solid var(--line);box-shadow:0 24px 50px -24px rgba(15,34,51,.4)}
+.ref h3{font-size:24px}
+.ref p{color:var(--muted);margin-top:10px}
+.link-arrow{display:inline-block;margin-top:14px;font-weight:600;color:var(--pixel-ink);text-decoration:none}
+.link-arrow:hover{text-decoration:underline;text-underline-offset:4px}
+.faq{max-width:760px;margin-top:24px}
+.faq details{border-bottom:1px solid var(--line)}
+.faq summary{list-style:none;cursor:pointer;display:flex;justify-content:space-between;gap:20px;padding:20px 0;font-weight:600;font-size:18px}
+.faq summary::-webkit-details-marker{display:none}
+.faq summary::after{content:"+";display:inline-block;color:var(--pixel-ink);font-size:24px;line-height:1;transition:transform .2s}
+.faq details[open] summary::after{transform:rotate(45deg)}
+.faq details p{color:var(--muted);padding:0 0 20px}
+
+/* Afslutning */
+.cta{background:var(--fjord);color:var(--on-dark);text-align:left}
+.cta h2{font-size:clamp(28px,4vw,42px)}
+.cta p{color:var(--on-dark-muted);font-size:18px;margin-top:14px;max-width:600px}
+.cta .call{margin-top:18px;font-size:16px;color:var(--on-dark-muted)}
+.cta .call a{color:var(--on-dark);font-weight:600;text-decoration:none;border-bottom:1px solid var(--pixel);white-space:nowrap}
+footer{background:var(--fjord);color:var(--on-dark-muted);font-size:14px;border-top:1px solid rgba(255,255,255,.08)}
+footer .wrap{display:flex;flex-wrap:wrap;gap:12px 24px;justify-content:space-between;align-items:center;padding-top:28px;padding-bottom:28px}
+footer a{color:inherit;text-underline-offset:3px}
+footer a:hover{color:var(--on-dark)}
+.call-fab{display:none}
+@media (max-width:760px){
+  .call-fab{position:fixed;right:16px;bottom:calc(16px + env(safe-area-inset-bottom,0px));z-index:20;display:inline-flex;align-items:center;gap:8px;padding:13px 20px;border-radius:999px;background:var(--pixel);color:#06201E;font-weight:600;font-size:16px;text-decoration:none;box-shadow:0 10px 24px -6px rgba(0,0,0,.45)}
+  footer .wrap{padding-bottom:96px}
+}
+@media (prefers-reduced-motion:reduce){.faq summary::after{transition:none}}

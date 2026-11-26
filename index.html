@@ -32,7 +32,8 @@
       "image": "https://sidesmart.dk/og-billede.jpg",
       "email": "william@sidesmart.dk",
       "telephone": "+45 50 54 21 09",
-      "areaServed": { "@type": "Country", "name": "Danmark" },
+      "address": { "@type": "PostalAddress", "addressLocality": "Lundby", "postalCode": "4750", "addressCountry": "DK" },
+      "areaServed": [{ "@type": "AdministrativeArea", "name": "Sydsjælland" }, { "@type": "City", "name": "Vordingborg" }, { "@type": "City", "name": "Næstved" }, { "@type": "Country", "name": "Danmark" }],
       "knowsAbout": ["Webdesign", "Hjemmesideudvikling", "Redesign af hjemmesider", "Søgemaskineoptimering"]
     },
     {
@@ -315,6 +316,8 @@ footer .wrap{display:flex;flex-wrap:wrap;gap:12px;justify-content:space-between;
 footer .logo{color:var(--on-dark);font-size:16px}
 .foot-link{color:inherit;text-underline-offset:3px}
 .foot-link:hover{color:var(--on-dark)}
+.more-links{margin-top:28px;color:var(--muted);font-size:16px}
+.more-links a{color:var(--pixel-ink);font-weight:600;text-underline-offset:3px}
 .theme-btn{background:none;border:1px solid rgba(255,255,255,.2);color:var(--on-dark-muted);border-radius:999px;padding:6px 12px;font:inherit;cursor:pointer}
 .theme-btn:hover{color:var(--on-dark)}
 
@@ -454,6 +457,7 @@ footer .logo{color:var(--on-dark);font-size:16px}
         <ul><li>Data hentes automatisk</li><li>Hosting og domæne</li><li>Hurtig hjælp ved ændringer</li></ul>
       </article>
     </div>
+    <p class="more-links">Læs mere: <a href="/hjemmeside-til-haandvaerkere.html">Hjemmeside til håndværkere</a> · <a href="/webdesigner-sydsjaelland.html">Webdesigner på Sydsjælland</a></p>
   </div>
 </section>
 
@@ -517,7 +521,7 @@ footer .logo{color:var(--on-dark);font-size:16px}
       <div class="contact-list">
         <div class="contact-row"><span>Telefon <small>Ring altid gerne</small></span><a href="tel:+4550542109">+45 50 54 21 09</a></div>
         <div class="contact-row"><span>Mail</span><a href="mailto:william@sidesmart.dk">william@sidesmart.dk</a></div>
-        <div class="contact-row"><span>Område</span><strong>Hele Danmark</strong></div>
+        <div class="contact-row"><span>Område</span><strong>Sydsjælland og hele Danmark</strong></div>
       </div>
     </div>
     <form class="contact-box contact-form" id="kontaktformular" action="https://formsubmit.co/william@sidesmart.dk" method="POST">
@@ -543,7 +547,7 @@ footer .logo{color:var(--on-dark);font-size:16px}
 <footer>
   <div class="wrap">
     <span class="logo"><svg class="logo-mark" viewBox="0 0 24 24" aria-hidden="true"><rect width="24" height="24" rx="6" fill="currentColor"/><path d="M6.5 12.5l3.5 3.5 7.5-8" fill="none" stroke="var(--pixel)" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/></svg><span>Side<b>smart</b></span></span>
-    <span>© <span id="aar">2026</span> Sidesmart · <a class="foot-link" href="/privatliv.html">Privatliv og cookies</a></span>
+    <span>© <span id="aar">2026</span> Sidesmart · <a class="foot-link" href="/webdesigner-sydsjaelland.html">Sydsjælland</a> · <a class="foot-link" href="/hjemmeside-til-haandvaerkere.html">Håndværkere</a> · <a class="foot-link" href="/privatliv.html">Privatliv og cookies</a></span>
     <button class="theme-btn" id="tema" type="button">Mørkt tema</button>
   </div>
 </footer>

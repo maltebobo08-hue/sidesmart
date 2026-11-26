@@ -13,6 +13,7 @@ Hjemmeside for webstudiet Sidesmart (sidesmart.dk). Ren HTML og CSS uden byggetr
 - `.nojekyll` – GitHub Pages udgiver filerne, som de er
 - `robots.txt`, `sitemap.xml` – til Google
 - `privatliv.html` – privatliv og cookies
+- `webdesigner-sydsjaelland.html`, `hjemmeside-til-haandvaerkere.html` – lokale/brancheundersider til Google (stil i `side.css`)
 - `samtykke.js` – cookie-banner. Vises kun, når der er sat et Meta Pixel- eller Google-id øverst i filen; sporing indlæses først efter ja
 
 ## Ret før siden går live
