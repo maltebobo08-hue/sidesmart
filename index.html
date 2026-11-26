@@ -11,9 +11,13 @@
 <meta property="og:locale" content="da_DK">
 <meta property="og:site_name" content="Sidesmart">
 <meta property="og:url" content="https://sidesmart.dk/">
-<meta property="og:title" content="Hjemmeside udvikling og webdesign | Sidesmart">
-<meta property="og:description" content="Hurtige, enkle og mobilvenlige hjemmesider til danske virksomheder.">
-<meta property="og:image" content="https://sidesmart.dk/oes-desktop.jpg">
+<meta property="og:title" content="Få et gratis hjemmeside-eksempel | Sidesmart">
+<meta property="og:description" content="Se gratis, hvordan jeres nye hjemmeside kunne se ud. Hurtige, mobilvenlige hjemmesider til danske virksomheder.">
+<meta property="og:image" content="https://sidesmart.dk/og-billede.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="Sidesmart: Få et gratis hjemmeside-eksempel">
+<meta name="twitter:card" content="summary_large_image">
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
@@ -25,7 +29,7 @@
       "description": "Webdesign og udvikling af hjemmesider til danske virksomheder.",
       "url": "https://sidesmart.dk/",
       "logo": "https://sidesmart.dk/favicon.svg",
-      "image": "https://sidesmart.dk/oes-desktop.jpg",
+      "image": "https://sidesmart.dk/og-billede.jpg",
       "email": "william@sidesmart.dk",
       "telephone": "+45 50 54 21 09",
       "areaServed": { "@type": "Country", "name": "Danmark" },
@@ -273,7 +277,7 @@ section{padding:104px 0}
 
 /* Contact */
 #kontakt{background:var(--fjord);color:var(--on-dark)}
-.contact{display:grid;grid-template-columns:1.1fr 1fr;gap:56px;align-items:center}
+.contact{display:grid;grid-template-columns:1fr 1fr;gap:56px;align-items:start}
 @media (max-width:900px){.contact{grid-template-columns:1fr;gap:36px}}
 #kontakt h2{font-size:clamp(32px,4.4vw,50px)}
 #kontakt p{color:var(--on-dark-muted);font-size:18px;margin-top:16px;max-width:480px}
@@ -284,12 +288,34 @@ section{padding:104px 0}
 .contact-row a{text-decoration:none;font-weight:600;word-break:break-all}
 .contact-row a:hover{color:var(--pixel)}
 .contact-box .btn{width:100%;justify-content:center;margin-top:20px}
+.contact-list{margin-top:28px;max-width:420px}
+.contact-form{display:grid;gap:14px}
+.contact-form label{display:grid;gap:6px;font-size:14px;font-weight:500;color:var(--on-dark-muted)}
+.contact-form input,.contact-form textarea{font:inherit;font-size:16px;color:var(--on-dark);background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.16);border-radius:10px;padding:12px 14px;width:100%}
+.contact-form textarea{resize:vertical;min-height:110px}
+.contact-form input:focus,.contact-form textarea:focus{outline:2px solid var(--pixel);outline-offset:0;border-color:transparent}
+.form-2{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+@media (max-width:520px){.form-2{grid-template-columns:1fr}}
+.contact-form .btn{margin-top:6px;border:0;cursor:pointer;font:inherit;font-weight:600}
+.contact-form .btn[disabled]{opacity:.6;cursor:wait}
+#kontakt .form-note{font-size:14px;margin:0;max-width:none}
+#kontakt .form-note.ok{color:var(--pixel)}
+#kontakt .form-note.fejl{color:#F2A7A0}
+.hp{position:absolute;left:-9999px;width:1px;height:1px;opacity:0}
+
 
 footer{background:var(--fjord);color:var(--on-dark-muted);font-size:14px;border-top:1px solid rgba(255,255,255,.08)}
 footer .wrap{display:flex;flex-wrap:wrap;gap:12px;justify-content:space-between;align-items:center;padding-top:28px;padding-bottom:28px}
 footer .logo{color:var(--on-dark);font-size:16px}
 .theme-btn{background:none;border:1px solid rgba(255,255,255,.2);color:var(--on-dark-muted);border-radius:999px;padding:6px 12px;font:inherit;cursor:pointer}
 .theme-btn:hover{color:var(--on-dark)}
+
+/* Ring nu-knap på mobil */
+.call-fab{display:none}
+@media (max-width:760px){
+  .call-fab{position:fixed;right:16px;bottom:calc(16px + env(safe-area-inset-bottom,0px));z-index:20;display:inline-flex;align-items:center;gap:8px;padding:13px 20px;border-radius:999px;background:var(--pixel);color:#06201E;font-weight:600;font-size:16px;text-decoration:none;box-shadow:0 10px 24px -6px rgba(0,0,0,.45)}
+  footer .wrap{padding-bottom:96px}
+}
 
 @media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}.btn{transition:none}}
 </style>
@@ -479,13 +505,27 @@ footer .logo{color:var(--on-dark);font-size:16px}
       <p class="kicker" style="color:var(--pixel)">Kontakt</p>
       <h2>Få et gratis eksempel på jeres hjemmeside</h2>
       <p>Skriv et par linjer om, hvad I har brug for, så laver vi et gratis eksempel på jeres nye hjemmeside. Det er helt uforpligtende.</p>
+      <div class="contact-list">
+        <div class="contact-row"><span>Telefon</span><a href="tel:+4550542109">+45 50 54 21 09</a></div>
+        <div class="contact-row"><span>Mail</span><a href="mailto:william@sidesmart.dk">william@sidesmart.dk</a></div>
+        <div class="contact-row"><span>Område</span><strong>Hele Danmark</strong></div>
+      </div>
     </div>
-    <div class="contact-box">
-      <div class="contact-row"><span>Mail</span><a href="mailto:william@sidesmart.dk">william@sidesmart.dk</a></div>
-      <div class="contact-row"><span>Telefon</span><a href="tel:+4550542109">+45 50 54 21 09</a></div>
-      <div class="contact-row"><span>Område</span><strong>Hele Danmark</strong></div>
-      <a class="btn btn-primary" href="mailto:william@sidesmart.dk?subject=Gratis%20hjemmeside-eksempel">Få jeres gratis eksempel</a>
-    </div>
+    <form class="contact-box contact-form" id="kontaktformular" action="https://formsubmit.co/william@sidesmart.dk" method="POST">
+      <input type="hidden" name="_subject" value="Ny henvendelse fra sidesmart.dk">
+      <input type="hidden" name="_template" value="table">
+      <input type="hidden" name="_captcha" value="false">
+      <input type="hidden" name="_next" value="https://sidesmart.dk/?tak=1#kontakt">
+      <input type="text" name="_honey" class="hp" tabindex="-1" autocomplete="off" aria-hidden="true">
+      <label>Navn<input type="text" name="navn" autocomplete="name" required></label>
+      <div class="form-2">
+        <label>Telefon<input type="tel" name="telefon" autocomplete="tel"></label>
+        <label>Mail<input type="email" name="email" autocomplete="email" required></label>
+      </div>
+      <label>Hvad laver jeres virksomhed, og hvad skal hjemmesiden kunne?<textarea name="besked" rows="4" required></textarea></label>
+      <button class="btn btn-primary" type="submit">Få jeres gratis eksempel</button>
+      <p class="form-note" id="formstatus" role="status">Vi svarer inden for en arbejdsdag. Vi bruger kun jeres oplysninger til at svare jer.</p>
+    </form>
   </div>
 </section>
 
@@ -494,11 +534,15 @@ footer .logo{color:var(--on-dark);font-size:16px}
 <footer>
   <div class="wrap">
     <span class="logo"><svg class="logo-mark" viewBox="0 0 24 24" aria-hidden="true"><rect width="24" height="24" rx="6" fill="currentColor"/><path d="M6.5 12.5l3.5 3.5 7.5-8" fill="none" stroke="var(--pixel)" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/></svg><span>Side<b>smart</b></span></span>
-    <!-- RET: tilføj CVR-nummer når virksomheden er registreret -->
     <span>© <span id="aar">2026</span> Sidesmart · sidesmart.dk</span>
     <button class="theme-btn" id="tema" type="button">Mørkt tema</button>
   </div>
 </footer>
+
+<a class="call-fab" href="tel:+4550542109" aria-label="Ring til Sidesmart på 50 54 21 09">
+  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.1 4.2 2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1.9.4 1.8.7 2.7a2 2 0 0 1-.5 2.1L8 9.8a16 16 0 0 0 6 6l1.3-1.3a2 2 0 0 1 2.1-.4c.9.3 1.8.6 2.7.7a2 2 0 0 1 1.7 2z"/></svg>
+  Ring nu
+</a>
 
 <script>
 (function(){
@@ -509,6 +553,23 @@ footer .logo{color:var(--on-dark);font-size:16px}
   try{var s=localStorage.getItem("tema");if(s)root.setAttribute("data-theme",s)}catch(e){}
   label();
   btn.addEventListener("click",function(){var n=isDark()?"light":"dark";root.setAttribute("data-theme",n);try{localStorage.setItem("tema",n)}catch(e){}label()});
+})();
+(function(){
+  var f=document.getElementById("kontaktformular"),st=document.getElementById("formstatus");
+  if(!f||!window.fetch)return;
+  if(/[?&]tak=1/.test(location.search)){st.textContent="Tak! Vi har modtaget jeres besked og vender tilbage inden for en arbejdsdag.";st.className="form-note ok"}
+  f.addEventListener("submit",function(e){
+    e.preventDefault();
+    var b=f.querySelector("button");b.disabled=true;b.textContent="Sender…";
+    fetch("https://formsubmit.co/ajax/william@sidesmart.dk",{method:"POST",headers:{"Accept":"application/json"},body:new FormData(f)})
+      .then(function(r){return r.json()})
+      .then(function(d){
+        if(d&&String(d.success)==="true"){f.reset();st.textContent="Tak! Vi har modtaget jeres besked og vender tilbage inden for en arbejdsdag.";st.className="form-note ok"}
+        else throw new Error(d&&d.message);
+      })
+      .catch(function(){st.innerHTML='Beskeden kunne ikke sendes. Ring på <a href="tel:+4550542109">50 54 21 09</a> eller skriv til <a href="mailto:william@sidesmart.dk">william@sidesmart.dk</a>.';st.className="form-note fejl"})
+      .then(function(){b.disabled=false;b.textContent="Få jeres gratis eksempel"});
+  });
 })();
 </script>
 </body>
