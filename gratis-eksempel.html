@@ -206,7 +206,7 @@ legend{padding:0;margin-bottom:10px}
   function tak(){kort.innerHTML='<div class="tak" role="status"><div class="ikon" aria-hidden="true"></div><h2>Tak! Vi har modtaget jeres bestilling</h2><p>Vi går i gang med jeres gratis eksempel og vender tilbage inden for en arbejdsdag. Har I spørgsmål, er I altid velkomne til at ringe på <a href="tel:+4550542109">50 54 21 09</a>.</p><p><a class="link-arrow" href="/">Tilbage til forsiden</a></p></div>';kort.scrollIntoView({behavior:"smooth",block:"start"})}
   if(/[?&]tak=1/.test(location.search)){tak();return}
   var filer=document.getElementById("filer"),liste=document.getElementById("filliste"),MAKS=10*1024*1024,ANTAL=5,filOk=true;
-  function mb(n){return (n/1048576).toFixed(1).replace(".",",")+" MB"}
+  function mb(n){return n<1048576?Math.max(1,Math.round(n/1024))+" KB":(n/1048576).toFixed(1).replace(".",",")+" MB"}
   function visFiler(){
     var fs=[].slice.call(filer.files),sum=0;liste.innerHTML="";
     fs.forEach(function(x){sum+=x.size;var li=document.createElement("li");li.innerHTML="<span></span><span>"+mb(x.size)+"</span>";li.firstChild.textContent=x.name;liste.appendChild(li)});
