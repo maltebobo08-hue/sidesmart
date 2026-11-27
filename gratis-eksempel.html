@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>Bestil et gratis hjemmeside-eksempel | Sidesmart</title>
-<meta name="description" content="Fortæl os om jeres virksomhed, så laver vi et gratis og uforpligtende eksempel på jeres nye hjemmeside. Typisk klar på 3-4 dage.">
+<meta name="description" content="Fortæl os om jeres virksomhed, så laver vi et gratis og uforpligtende eksempel på jeres nye hjemmeside. Eksemplet er typisk klar på en dag.">
 <link rel="canonical" href="https://sidesmart.dk/gratis-eksempel.html">
 <link rel="icon" href="/favicon.svg" type="image/svg+xml">
 <meta name="theme-color" content="#0F2233">
@@ -91,7 +91,7 @@ legend{padding:0;margin-bottom:10px}
       <ul class="trust">
         <li>100 % gratis</li>
         <li>Helt uforpligtende</li>
-        <li>Typisk klar på 3-4 dage</li>
+        <li>Eksempel klar på en dag</li>
       </ul>
     </div>
   </div>
@@ -177,7 +177,7 @@ legend{padding:0;margin-bottom:10px}
         <ol class="trin">
           <li><span><strong>I udfylder formularen</strong>Det tager et par minutter.</span></li>
           <li><span><strong>Vi kontakter jer</strong>Inden for en arbejdsdag, hvis vi har spørgsmål.</span></li>
-          <li><span><strong>I får jeres eksempel</strong>Typisk på 3-4 dage, som et link I kan åbne på mobilen.</span></li>
+          <li><span><strong>I får jeres eksempel</strong>Typisk allerede dagen efter, som et link I kan åbne på mobilen.</span></li>
           <li><span><strong>I bestemmer</strong>Kan I lide det, bygger vi den færdig for 1.000 kr. Ellers siger I bare nej tak.</span></li>
         </ol>
       </div>
@@ -203,7 +203,7 @@ legend{padding:0;margin-bottom:10px}
 <script>
 (function(){
   var f=document.getElementById("bestilling"),st=document.getElementById("status"),kort=document.getElementById("formkort");
-  function tak(){kort.innerHTML='<div class="tak" role="status"><div class="ikon" aria-hidden="true"></div><h2>Tak! Vi har modtaget jeres bestilling</h2><p>Vi går i gang med jeres gratis eksempel og vender tilbage inden for en arbejdsdag. Har I spørgsmål, er I altid velkomne til at ringe på <a href="tel:+4550542109">50 54 21 09</a>.</p><p><a class="link-arrow" href="/">Tilbage til forsiden</a></p></div>';kort.scrollIntoView({behavior:"smooth",block:"start"})}
+  function tak(){kort.innerHTML='<div class="tak" role="status"><div class="ikon" aria-hidden="true"></div><h2>Tak! Vi har modtaget jeres bestilling</h2><p>Vi går i gang med jeres gratis eksempel, som typisk er klar på en dag. Har I spørgsmål, er I altid velkomne til at ringe på <a href="tel:+4550542109">50 54 21 09</a>.</p><p><a class="link-arrow" href="/">Tilbage til forsiden</a></p></div>';kort.scrollIntoView({behavior:"smooth",block:"start"})}
   if(/[?&]tak=1/.test(location.search)){tak();return}
   var filer=document.getElementById("filer"),liste=document.getElementById("filliste"),MAKS=10*1024*1024,ANTAL=5,filOk=true;
   function mb(n){return n<1048576?Math.max(1,Math.round(n/1024))+" KB":(n/1048576).toFixed(1).replace(".",",")+" MB"}
