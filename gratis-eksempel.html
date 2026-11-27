@@ -44,6 +44,16 @@ legend{padding:0;margin-bottom:10px}
 .valg label{display:flex;align-items:center;gap:10px;font-weight:500;font-size:15px;background:var(--bg);border:1px solid var(--line);border-radius:10px;padding:10px 12px;cursor:pointer}
 .valg input{width:18px;height:18px;accent-color:var(--pixel);flex:none;margin:0}
 .valg label:has(input:checked){border-color:var(--pixel)}
+.upload{position:relative;display:flex!important;align-items:center;gap:14px;border:2px dashed var(--line);border-radius:12px;padding:18px;cursor:pointer;background:var(--bg)}
+.upload:hover,.upload:focus-within{border-color:var(--pixel)}
+.upload input{position:absolute;inset:0;opacity:0;cursor:pointer;width:100%}
+.upload strong{display:block;font-size:16px}
+.upload small{display:block}
+.upload-ikon{width:42px;height:42px;flex:none;border-radius:10px;background:var(--soft) url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%233FA7A0' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Crect x='3' y='3' width='18' height='18' rx='2'/%3E%3Ccircle cx='9' cy='9' r='2'/%3E%3Cpath d='M21 15l-5-5L5 21'/%3E%3C/svg%3E") center/22px no-repeat}
+.filliste{list-style:none;margin:8px 0 0;padding:0;display:grid;gap:6px}
+.filliste li{display:flex;justify-content:space-between;gap:10px;font-size:14px;color:var(--muted);background:var(--bg);border:1px solid var(--line);border-radius:8px;padding:8px 12px}
+.filliste li span:first-child{overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.filliste .fejl{color:#D9534F;border-color:#D9534F}
 .hp{position:absolute;left:-9999px;width:1px;height:1px;opacity:0}
 .send{border:0;cursor:pointer;font:inherit;font-weight:600;justify-self:start;font-size:17px;padding:15px 26px}
 .send[disabled]{opacity:.6;cursor:wait}
@@ -131,6 +141,17 @@ legend{padding:0;margin-bottom:10px}
             </div>
           </fieldset>
 
+          <fieldset>
+            <legend>Billeder eller videoer, der skal med <small>Valgfrit. Fx logo, billeder af jeres arbejde eller jer selv</small></legend>
+            <label class="upload" id="upload">
+              <input type="file" id="filer" accept="image/*,video/*,.pdf" multiple>
+              <span class="upload-ikon" aria-hidden="true"></span>
+              <span><strong>Vælg billeder eller videoer</strong><small>Op til 5 filer, i alt højst 10 MB</small></span>
+            </label>
+            <ul class="filliste" id="filliste"></ul>
+            <label style="margin-top:12px">Link til flere billeder eller videoer <small>Store videoer eller mange billeder? Del et link fra fx Google Drive, Dropbox eller WeTransfer</small><input type="text" name="Link til billeder/videoer" placeholder="https://"></label>
+          </fieldset>
+
           <label>Ønsker til farver eller stil<small>Fx jeres logofarver, eller en side I godt kan lide</small><input type="text" name="Farver og stil"></label>
           <label>Hvor hørte I om os?
             <select name="Hørte om os via">
@@ -184,10 +205,30 @@ legend{padding:0;margin-bottom:10px}
   var f=document.getElementById("bestilling"),st=document.getElementById("status"),kort=document.getElementById("formkort");
   function tak(){kort.innerHTML='<div class="tak" role="status"><div class="ikon" aria-hidden="true"></div><h2>Tak! Vi har modtaget jeres bestilling</h2><p>Vi går i gang med jeres gratis eksempel og vender tilbage inden for en arbejdsdag. Har I spørgsmål, er I altid velkomne til at ringe på <a href="tel:+4550542109">50 54 21 09</a>.</p><p><a class="link-arrow" href="/">Tilbage til forsiden</a></p></div>';kort.scrollIntoView({behavior:"smooth",block:"start"})}
   if(/[?&]tak=1/.test(location.search)){tak();return}
-  if(!f||!window.fetch)return;
+  var filer=document.getElementById("filer"),liste=document.getElementById("filliste"),MAKS=10*1024*1024,ANTAL=5,filOk=true;
+  function mb(n){return (n/1048576).toFixed(1).replace(".",",")+" MB"}
+  function visFiler(){
+    var fs=[].slice.call(filer.files),sum=0;liste.innerHTML="";
+    fs.forEach(function(x){sum+=x.size;var li=document.createElement("li");li.innerHTML="<span></span><span>"+mb(x.size)+"</span>";li.firstChild.textContent=x.name;liste.appendChild(li)});
+    filOk=fs.length<=ANTAL&&sum<=MAKS;
+    if(!filOk){var li=document.createElement("li");li.className="fejl";li.textContent=fs.length>ANTAL?"Vælg højst "+ANTAL+" filer. Del resten via et link nedenfor.":"Filerne fylder "+mb(sum)+", men højst 10 MB kan sendes. Del store videoer via et link nedenfor.";liste.appendChild(li)}
+  }
+  filer.addEventListener("change",visFiler);
   f.addEventListener("submit",function(e){
     var valgt=[].map.call(f.querySelectorAll("#valg input:checked"),function(i){return i.value});
     document.getElementById("indhold").value=valgt.join(", ");
+    if(filer.files.length){
+      if(!filOk){e.preventDefault();liste.scrollIntoView({behavior:"smooth",block:"center"});return}
+      /* Med filer: almindelig afsendelse (FormSubmit understøtter vedhæftninger her) */
+      [].forEach.call(f.querySelectorAll("input.vedhaeft"),function(i){i.remove()});
+      [].forEach.call(filer.files,function(x,n){var dt=new DataTransfer();dt.items.add(x);var inp=document.createElement("input");inp.type="file";inp.name="Fil "+(n+1);inp.className="vedhaeft";inp.hidden=true;inp.files=dt.files;f.appendChild(inp)});
+      f.enctype="multipart/form-data";
+      var b0=f.querySelector(".send");b0.textContent="Sender…";
+      st.textContent="Sender jeres bestilling og filer. Det kan tage lidt tid, så luk ikke siden.";st.className="note";
+      setTimeout(function(){b0.disabled=true},0);
+      return;
+    }
+    if(!window.fetch)return;
     e.preventDefault();
     var b=f.querySelector(".send"),tekst=b.textContent;b.disabled=true;b.textContent="Sender…";
     st.textContent="Sender jeres bestilling. Det kan tage op til et halvt minut, så luk ikke siden.";st.className="note";
