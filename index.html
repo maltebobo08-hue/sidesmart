@@ -58,6 +58,7 @@
 <meta name="theme-color" content="#0F2233">
 <script>/* Mørkt tema som udgangspunkt; brugerens eget valg (knappen i bunden) huskes */(function(){var t="dark";try{t=localStorage.getItem("tema")||"dark"}catch(e){}document.documentElement.setAttribute("data-theme",t)})();</script>
 <link rel="preload" href="inter-600.woff2" as="font" type="font/woff2" crossorigin>
+<script>/* Effekter: kun uden "reducer bevægelse". Intro kun første besøg pr. session. Sikkerhedsnet: vis alt efter 3 sek. */(function(){var r=document.documentElement;if(matchMedia("(prefers-reduced-motion: reduce)").matches)return;r.classList.add("motion");var s=false;try{s=sessionStorage.getItem("intro-set")==="1"}catch(e){}if(!s)r.classList.add("intro-vis");setTimeout(function(){r.classList.add("klar");r.classList.remove("intro-vis")},3500)})();</script>
 <style>
 @font-face{font-family:"Inter";font-weight:400;font-display:swap;src:url(inter-400.woff2) format("woff2")}
 @font-face{font-family:"Inter";font-weight:500;font-display:swap;src:url(inter-500.woff2) format("woff2")}
@@ -338,14 +339,88 @@ footer .wrap > .fb-foot{margin-left:auto}
 }
 
 @media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}.btn{transition:none}}
+
+/* ================= Effekter ================= */
+.intro{display:none}
+html.intro-vis{overflow:hidden}
+html.intro-vis .intro{display:flex}
+.intro{position:fixed;inset:0;z-index:200;background:var(--fjord);color:var(--on-dark);flex-direction:column;justify-content:space-between;padding:clamp(16px,3vw,44px);transition:transform 1s cubic-bezier(.76,0,.24,1)}
+.intro.ud{transform:translateY(-100%)}
+.intro-top{display:flex;justify-content:space-between;align-items:center;font-size:14px;font-weight:500;color:var(--on-dark-muted)}
+.intro-top .logo{color:var(--on-dark)}
+.intro-bund{display:flex;justify-content:space-between;align-items:flex-end;gap:20px}
+.intro-ord{font-weight:600;font-size:clamp(20px,2.6vw,34px);letter-spacing:-.02em;line-height:1.2;height:1.2em;overflow:hidden}
+.intro-ord span{display:block;animation:ordskift 1.3s steps(1) forwards}
+.intro-ord span b{display:block;font-weight:600;height:1.2em}
+.intro-ord span b:last-child{color:var(--pixel)}
+@keyframes ordskift{0%{transform:translateY(0)}25%{transform:translateY(-1.2em)}50%{transform:translateY(-2.4em)}75%,100%{transform:translateY(-3.6em)}}
+.intro-tal{font-weight:600;font-size:clamp(90px,17vw,240px);line-height:.8;letter-spacing:-.05em;font-variant-numeric:tabular-nums;color:var(--pixel)}
+.intro-bar{position:absolute;left:0;bottom:0;height:3px;width:100%;background:var(--pixel);transform:scaleX(0);transform-origin:left}
+
+/* hero ind */
+.linje{display:block;overflow:hidden;padding-bottom:.06em;margin-bottom:-.06em}
+.linje>span{display:block}
+.motion .linje>span{transform:translateY(110%);transition:transform 1.1s cubic-bezier(.2,.85,.2,1);transition-delay:var(--d,0s)}
+.motion.klar .linje>span{transform:none}
+.motion .op{opacity:0;transform:translateY(24px);transition:opacity 1s ease,transform 1s cubic-bezier(.2,.85,.2,1);transition-delay:var(--d,0s)}
+.motion.klar .op{opacity:1;transform:none}
+.motion .demo.op{transform:translateY(40px) scale(.96)}
+.motion.klar .demo.op{transform:none}
+.demo{will-change:transform}
+.spot{position:absolute;left:0;top:0;z-index:1;width:640px;height:640px;margin:-320px 0 0 -320px;border-radius:50%;pointer-events:none;background:radial-gradient(closest-side,rgba(63,167,160,.16),transparent);transform:translate3d(30vw,30vh,0);transition:opacity .6s;opacity:0}
+.mus .spot{opacity:1}
+
+/* løbebånd */
+.baand{background:var(--pixel);color:#06201E;overflow:hidden;padding:16px 0;position:relative;z-index:3}
+.baand-spor{display:flex;gap:40px;width:max-content;font-weight:600;font-size:clamp(17px,1.9vw,24px);letter-spacing:-.01em;white-space:nowrap;animation:loeb 30s linear infinite;will-change:transform}
+.baand-spor span{display:flex;align-items:center;gap:40px}
+.baand-spor span::after{content:"";width:9px;height:9px;background:#06201E;border-radius:2px;transform:rotate(45deg)}
+@keyframes loeb{to{transform:translateX(-50%)}}
+
+/* afsløring ved scroll */
+.motion [data-vis]{opacity:0;transform:translateY(40px);transition:opacity .9s ease,transform .9s cubic-bezier(.2,.85,.2,1);transition-delay:var(--d,0s)}
+.motion [data-vis].synlig{opacity:1;transform:none}
+.motion .steps[data-vis]{opacity:1;transform:none;border-top-color:transparent;position:relative}
+.steps[data-vis]::before{content:"";position:absolute;left:0;right:0;top:-1px;height:2px;background:linear-gradient(90deg,var(--pixel),var(--line));transform:scaleX(0);transform-origin:left;transition:transform 1.4s cubic-bezier(.2,.85,.2,1)}
+.steps.synlig::before{transform:scaleX(1)}
+.shots .phone{transition:none;will-change:transform}
+
+/* vippende kort med lys */
+.vip{position:relative;transition:transform .3s ease-out,box-shadow .3s;will-change:transform}
+.vip::after{content:"";position:absolute;inset:0;border-radius:inherit;pointer-events:none;opacity:0;transition:opacity .3s;background:radial-gradient(320px circle at var(--mx,50%) var(--my,50%),rgba(63,167,160,.16),transparent 60%)}
+.vip:hover{box-shadow:0 30px 50px -28px rgba(0,0,0,.45)}
+.vip:hover::after{opacity:1}
+
+/* musemarkør */
+.cursor{display:none}
+html.mus,html.mus a,html.mus button,html.mus summary{cursor:none}
+html.mus input,html.mus textarea,html.mus select{cursor:text}
+.mus .cursor{display:grid;place-items:center;position:fixed;left:0;top:0;z-index:150;pointer-events:none;width:12px;height:12px;margin:-6px 0 0 -6px;border-radius:50%;background:var(--pixel);box-shadow:0 0 0 1.5px rgba(255,255,255,.55);transition:width .35s cubic-bezier(.2,.85,.2,1),height .35s cubic-bezier(.2,.85,.2,1),margin .35s cubic-bezier(.2,.85,.2,1),opacity .2s,background .2s}
+.cursor::after{content:attr(data-tekst);font:600 13px/1 var(--sans);color:#06201E;opacity:0;transition:opacity .2s}
+.cursor.lille{width:44px;height:44px;margin:-22px 0 0 -22px;background:rgba(63,167,160,.28);box-shadow:0 0 0 1.5px var(--pixel)}
+.cursor.stor{width:92px;height:92px;margin:-46px 0 0 -46px}
+.cursor.stor::after{opacity:1}
+.cursor.skjul{opacity:0}
+
+@media (prefers-reduced-motion:reduce){.baand-spor{animation:none}}
 </style>
 </head>
 <body>
 <a class="skip" href="#indhold">Spring til indhold</a>
+<div class="intro" id="intro" aria-hidden="true">
+  <div class="intro-top"><span class="logo"><svg class="logo-mark" viewBox="0 0 24 24"><rect width="24" height="24" rx="6" fill="currentColor"/><path d="M6.5 12.5l3.5 3.5 7.5-8" fill="none" stroke="#3FA7A0" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/></svg><span>Side<b>smart</b></span></span><span>Hjemmesider fra Næstved</span></div>
+  <div class="intro-bund">
+    <div class="intro-ord"><span><b>Skitse</b><b>Design</b><b>Tekst</b><b>Klar ✓</b></span></div>
+    <div class="intro-tal" id="intro-tal">0</div>
+  </div>
+  <i class="intro-bar" id="intro-bar"></i>
+</div>
+<div class="cursor" id="cursor" aria-hidden="true"></div>
 
 <div class="hero">
+  <div class="spot" aria-hidden="true"></div>
   <div class="wrap">
-    <header>
+    <header class="op">
       <a class="logo" href="#" aria-label="Sidesmart – forside">
         <svg class="logo-mark" viewBox="0 0 24 24" aria-hidden="true"><rect width="24" height="24" rx="6" fill="currentColor"/><path d="M6.5 12.5l3.5 3.5 7.5-8" fill="none" stroke="var(--pixel)" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
         <span>Side<b>smart</b></span>
@@ -362,20 +437,20 @@ footer .wrap > .fb-foot{margin-left:auto}
     </header>
 
     <div class="hero-inner">
-      <p class="eyebrow">Webdesign og hjemmesideudvikling</p>
-      <h1>Få et <em>gratis</em><br>hjemmeside-eksempel.</h1>
+      <p class="eyebrow op" style="--d:.05s">Webdesign og hjemmesideudvikling</p>
+      <h1><span class="linje"><span style="--d:.12s">Få et <em>gratis</em></span></span><span class="linje"><span style="--d:.24s">hjemmeside-eksempel.</span></span></h1>
       <div class="hero-row">
         <div>
-          <p class="lead"><strong>Det er helt gratis</strong> at få et eksempel på, hvordan jeres nye hjemmeside kunne se ud. Eksemplet er klar på en dag. Kan I lide det, bygger vi den færdig. Kan I ikke, koster det jer ingenting.</p>
-          <div class="btns">
+          <p class="lead op" style="--d:.4s"><strong>Det er helt gratis</strong> at få et eksempel på, hvordan jeres nye hjemmeside kunne se ud. Eksemplet er klar på en dag. Kan I lide det, bygger vi den færdig. Kan I ikke, koster det jer ingenting.</p>
+          <div class="btns op" style="--d:.52s">
             <a class="btn btn-primary" href="/gratis-eksempel.html">Bestil jeres gratis eksempel</a>
             <a class="btn btn-ghost" href="#referencer">Se vores arbejde</a>
           </div>
-          <p class="call-line">Har I spørgsmål? I er altid velkomne til at ringe på <a href="tel:+4550542109">50 54 21 09</a>.</p>
+          <p class="call-line op" style="--d:.62s">Har I spørgsmål? I er altid velkomne til at ringe på <a href="tel:+4550542109">50 54 21 09</a>.</p>
         </div>
 
         <!-- Animation: en hjemmeside bygges fra skitse til færdig side (ren CSS, løkke på 9 sek.) -->
-        <div class="demo" role="img" aria-label="Animation: en hjemmeside bliver bygget fra skitse over design og tekst til færdigt eksempel">
+        <div class="demo op" style="--d:.35s" role="img" aria-label="Animation: en hjemmeside bliver bygget fra skitse over design og tekst til færdigt eksempel">
           <div class="demo-bar"><i></i><i></i><i></i><span>jeres-firma.dk</span></div>
           <div class="demo-page">
             <div class="d-nav"><b class="d-logo"><i>Jeres Firma</i></b><b><i>Ydelser</i></b><b><i>Om os</i></b><b><i>Kontakt</i></b></div>
@@ -398,6 +473,13 @@ footer .wrap > .fb-foot{margin-left:auto}
   </div>
 </div>
 
+<div class="baand" aria-hidden="true">
+  <div class="baand-spor">
+    <span>Gratis eksempel</span><span>Klar på en dag</span><span>1.000 kr. for hele siden</span><span>Mobilvenlig</span><span>Synlig på Google</span><span>Ring altid gerne</span>
+    <span>Gratis eksempel</span><span>Klar på en dag</span><span>1.000 kr. for hele siden</span><span>Mobilvenlig</span><span>Synlig på Google</span><span>Ring altid gerne</span>
+  </div>
+</div>
+
 <main id="indhold">
 
 <section id="referencer">
@@ -409,13 +491,13 @@ footer .wrap > .fb-foot{margin-left:auto}
     </div>
 
     <article class="case">
-      <div class="shots">
+      <a class="shots" href="https://xn--es-kka.dk" target="_blank" rel="noopener" data-cursor="Se siden" aria-label="Besøg øes.dk" style="display:block;text-decoration:none">
         <div class="browser">
           <div class="browser-bar" aria-hidden="true"><i></i><i></i><i></i><span>øes.dk</span></div>
           <img src="oes-desktop.jpg" width="1440" height="900" alt="Forsiden af øes.dk med overskriften 'Lejeboliger på Sjælland og øerne'" loading="lazy">
         </div>
         <div class="phone"><img src="oes-mobil.jpg" width="750" height="1624" alt="øes.dk vist på en mobiltelefon" loading="lazy"></div>
-      </div>
+      </a>
       <div>
         <span class="case-tag">Ejendomsselskab · Redesign</span>
         <h3>Øernes Ejendomsselskab</h3>
@@ -591,6 +673,7 @@ footer .wrap > .fb-foot{margin-left:auto}
   });
 })();
 </script>
+<script src="/effekter.js" defer></script>
 <script src="/samtykke.js"></script>
 <script data-goatcounter="https://sidesmart.goatcounter.com/count" async src="https://gc.zgo.at/count.js"></script>
 </body>
