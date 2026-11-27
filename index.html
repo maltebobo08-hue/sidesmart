@@ -58,7 +58,7 @@
 <meta name="theme-color" content="#0F2233">
 <script>/* Mørkt tema som udgangspunkt; brugerens eget valg (knappen i bunden) huskes */(function(){var t="dark";try{t=localStorage.getItem("tema")||"dark"}catch(e){}document.documentElement.setAttribute("data-theme",t)})();</script>
 <link rel="preload" href="inter-600.woff2" as="font" type="font/woff2" crossorigin>
-<script>/* Effekter: kun uden "reducer bevægelse". Intro kun første besøg pr. session. Sikkerhedsnet: vis alt efter 3 sek. */(function(){var r=document.documentElement;if(matchMedia("(prefers-reduced-motion: reduce)").matches)return;r.classList.add("motion");var s=false;try{s=sessionStorage.getItem("intro-set")==="1"}catch(e){}if(!s)r.classList.add("intro-vis");setTimeout(function(){r.classList.add("klar");r.classList.remove("intro-vis")},3500)})();</script>
+<script>/* Effekter: kun uden "reducer bevægelse". Sikkerhedsnet: vis alt efter 3 sek. */(function(){var r=document.documentElement;if(matchMedia("(prefers-reduced-motion: reduce)").matches)return;r.classList.add("motion");setTimeout(function(){r.classList.add("klar")},3000)})();</script>
 <style>
 @font-face{font-family:"Inter";font-weight:400;font-display:swap;src:url(inter-400.woff2) format("woff2")}
 @font-face{font-family:"Inter";font-weight:500;font-display:swap;src:url(inter-500.woff2) format("woff2")}
@@ -341,22 +341,6 @@ footer .wrap > .fb-foot{margin-left:auto}
 @media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}.btn{transition:none}}
 
 /* ================= Effekter ================= */
-.intro{display:none}
-html.intro-vis{overflow:hidden}
-html.intro-vis .intro{display:flex}
-.intro{position:fixed;inset:0;z-index:200;background:var(--fjord);color:var(--on-dark);flex-direction:column;justify-content:space-between;padding:clamp(16px,3vw,44px);transition:transform 1s cubic-bezier(.76,0,.24,1)}
-.intro.ud{transform:translateY(-100%)}
-.intro-top{display:flex;justify-content:space-between;align-items:center;font-size:14px;font-weight:500;color:var(--on-dark-muted)}
-.intro-top .logo{color:var(--on-dark)}
-.intro-bund{display:flex;justify-content:space-between;align-items:flex-end;gap:20px}
-.intro-ord{font-weight:600;font-size:clamp(20px,2.6vw,34px);letter-spacing:-.02em;line-height:1.2;height:1.2em;overflow:hidden}
-.intro-ord span{display:block;animation:ordskift 1.3s steps(1) forwards}
-.intro-ord span b{display:block;font-weight:600;height:1.2em}
-.intro-ord span b:last-child{color:var(--pixel)}
-@keyframes ordskift{0%{transform:translateY(0)}25%{transform:translateY(-1.2em)}50%{transform:translateY(-2.4em)}75%,100%{transform:translateY(-3.6em)}}
-.intro-tal{font-weight:600;font-size:clamp(90px,17vw,240px);line-height:.8;letter-spacing:-.05em;font-variant-numeric:tabular-nums;color:var(--pixel)}
-.intro-bar{position:absolute;left:0;bottom:0;height:3px;width:100%;background:var(--pixel);transform:scaleX(0);transform-origin:left}
-
 /* hero ind */
 .linje{display:block;overflow:hidden;padding-bottom:.06em;margin-bottom:-.06em}
 .linje>span{display:block}
@@ -371,10 +355,10 @@ html.intro-vis .intro{display:flex}
 .mus .spot{opacity:1}
 
 /* løbebånd */
-.baand{background:var(--pixel);color:#06201E;overflow:hidden;padding:16px 0;position:relative;z-index:3}
-.baand-spor{display:flex;gap:40px;width:max-content;font-weight:600;font-size:clamp(17px,1.9vw,24px);letter-spacing:-.01em;white-space:nowrap;animation:loeb 30s linear infinite;will-change:transform}
+.baand{background:var(--pixel);color:#06201E;overflow:hidden;padding:9px 0;position:relative;z-index:3}
+.baand-spor{display:flex;gap:40px;width:max-content;font-weight:600;font-size:15px;letter-spacing:-.01em;white-space:nowrap;animation:loeb 40s linear infinite;will-change:transform}
 .baand-spor span{display:flex;align-items:center;gap:40px}
-.baand-spor span::after{content:"";width:9px;height:9px;background:#06201E;border-radius:2px;transform:rotate(45deg)}
+.baand-spor span::after{content:"";width:7px;height:7px;background:#06201E;border-radius:2px;transform:rotate(45deg)}
 @keyframes loeb{to{transform:translateX(-50%)}}
 
 /* afsløring ved scroll */
@@ -402,20 +386,18 @@ html.mus input,html.mus textarea,html.mus select{cursor:text}
 .cursor.stor::after{opacity:1}
 .cursor.skjul{opacity:0}
 
-@media (prefers-reduced-motion:reduce){.baand-spor{animation:none}}
 </style>
 </head>
 <body>
 <a class="skip" href="#indhold">Spring til indhold</a>
-<div class="intro" id="intro" aria-hidden="true">
-  <div class="intro-top"><span class="logo"><svg class="logo-mark" viewBox="0 0 24 24"><rect width="24" height="24" rx="6" fill="currentColor"/><path d="M6.5 12.5l3.5 3.5 7.5-8" fill="none" stroke="#3FA7A0" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/></svg><span>Side<b>smart</b></span></span><span>Hjemmesider fra Næstved</span></div>
-  <div class="intro-bund">
-    <div class="intro-ord"><span><b>Skitse</b><b>Design</b><b>Tekst</b><b>Klar ✓</b></span></div>
-    <div class="intro-tal" id="intro-tal">0</div>
-  </div>
-  <i class="intro-bar" id="intro-bar"></i>
-</div>
 <div class="cursor" id="cursor" aria-hidden="true"></div>
+
+<div class="baand" aria-hidden="true">
+  <div class="baand-spor">
+    <span>Gratis eksempel</span><span>Klar på en dag</span><span>1.000 kr. for hele siden</span><span>Mobilvenlig</span><span>Synlig på Google</span><span>Ring altid gerne</span>
+    <span>Gratis eksempel</span><span>Klar på en dag</span><span>1.000 kr. for hele siden</span><span>Mobilvenlig</span><span>Synlig på Google</span><span>Ring altid gerne</span>
+  </div>
+</div>
 
 <div class="hero">
   <div class="spot" aria-hidden="true"></div>
@@ -473,12 +455,6 @@ html.mus input,html.mus textarea,html.mus select{cursor:text}
   </div>
 </div>
 
-<div class="baand" aria-hidden="true">
-  <div class="baand-spor">
-    <span>Gratis eksempel</span><span>Klar på en dag</span><span>1.000 kr. for hele siden</span><span>Mobilvenlig</span><span>Synlig på Google</span><span>Ring altid gerne</span>
-    <span>Gratis eksempel</span><span>Klar på en dag</span><span>1.000 kr. for hele siden</span><span>Mobilvenlig</span><span>Synlig på Google</span><span>Ring altid gerne</span>
-  </div>
-</div>
 
 <main id="indhold">
 

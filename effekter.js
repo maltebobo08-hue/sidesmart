@@ -1,4 +1,4 @@
-/* Sidesmart – effekter på forsiden: intro, afsløring ved scroll, 3D, egen musemarkør, magnetiske knapper, løbebånd.
+/* Sidesmart – effekter på forsiden: afsløring ved scroll, 3D, egen musemarkør, magnetiske knapper, løbebånd.
    Alt slås fra ved "reducer bevægelse". Uden JS vises siden helt normalt. */
 (function(){
   var root=document.documentElement;
@@ -6,17 +6,7 @@
   var mus=matchMedia("(hover:hover) and (pointer:fine)").matches;
   function klar(){root.classList.add("klar")}
 
-  /* ---------- intro (kun første besøg pr. session) ---------- */
-  var intro=document.getElementById("intro");
-  if(root.classList.contains("intro-vis")&&intro){
-    var tal=document.getElementById("intro-tal"),bar=document.getElementById("intro-bar"),t0=performance.now(),varighed=1300,slut=false;
-    function luk(){if(slut)return;slut=true;tal.textContent="100";bar.style.transform="scaleX(1)";
-      setTimeout(function(){intro.classList.add("ud");klar();setTimeout(function(){root.classList.remove("intro-vis")},1000)},150)}
-    (function loop(t){if(slut)return;var p=Math.min(1,(t-t0)/varighed),e=1-Math.pow(1-p,3);tal.textContent=Math.round(e*100);bar.style.transform="scaleX("+e+")";
-      if(p<1)requestAnimationFrame(loop);else luk()})(t0);
-    setTimeout(luk,varighed+300);
-    try{sessionStorage.setItem("intro-set","1")}catch(e){}
-  }else{requestAnimationFrame(klar)}
+  requestAnimationFrame(klar);
   if(stille)return;
 
   /* ---------- afsløring ved scroll ---------- */
@@ -29,13 +19,11 @@
   /* ---------- scroll + mus: parallakse, 3D-demo, løbebånd, lys ---------- */
   var hero=document.querySelector(".hero"),demo=document.querySelector(".demo"),spot=document.querySelector(".spot");
   var phone=document.querySelector(".shots .phone"),shots=document.querySelector(".shots");
-  var spor=document.querySelector(".baand-spor"),x=0,sidst=scrollY,fart=0,mx=0,my=0,tx=0,ty=0;
-  if(spor)spor.style.animation="none";
+  var mx=0,my=0,tx=0,ty=0;
   function tick(){
-    var y=scrollY;fart+=((y-sidst)-fart)*.12;sidst=y;
+    var y=scrollY;
     tx+=(mx-tx)*.08;ty+=(my-ty)*.08;
     if(demo&&y<innerHeight*1.3)demo.style.transform="perspective(1200px) rotateX("+(-ty*8)+"deg) rotateY("+(tx*10)+"deg) translateY("+(y*.07)+"px)";
-    if(spor){var w=spor.scrollWidth/2;x-=.55+Math.abs(fart)*.3;if(-x>=w)x+=w;spor.style.transform="translate3d("+x+"px,0,0) skewX("+Math.max(-10,Math.min(10,-fart*.35))+"deg)"}
     if(phone&&shots){var r=shots.getBoundingClientRect();if(r.bottom>0&&r.top<innerHeight){var p=(r.top+r.height/2-innerHeight/2)/innerHeight;phone.style.transform="translateY("+(p*60)+"px)"}}
     requestAnimationFrame(tick)}
   requestAnimationFrame(tick);
